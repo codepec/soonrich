@@ -6,26 +6,95 @@ let level = 1;
 let hunger = 90;
 let bottlesCollected = 0;
 
+const eventCards = [
+  {
+    type: "weakness",
+    title: "Drinking Party",
+    description:
+      "A wild night of partying awaits you! Experience +100 and Hunger -50%. Let loose, dance, and drink until the sun comes up. But be warned, the next morning might not be so pleasant.",
+    experience: 100,
+    hunger: -50,
+  },
+  {
+    type: "strength",
+    title: "Lucky Find",
+    description: "You are a lucky person and find +100 bottles!",
+    bottlesCollected: 100,
+    bottles: 100,
+  },
+  {
+    type: "strength",
+    title: "Meet Colleagues",
+    description: "You meet your colleagues and collect +50 bottles!",
+    bottlesCollected: 50,
+    bottles: 50,
+  },
+  // Add more event cards here
+];
+
+function playEventCard() {
+  // Generate a random number between 1 and 20
+  const randomNum = Math.floor(Math.random() * 20) + 1;
+
+  // Check if the random number is 1 (1/20 chance)
+  if (randomNum <= 1) {
+    // Get a random event card from the eventCards array
+    const randomCard =
+      eventCards[Math.floor(Math.random() * eventCards.length)];
+
+    // Apply the effects of the event card
+    if (randomCard.type === "weakness") {
+      // Handle weakness event card
+      collectExperiencePoints(randomCard.experience);
+      hunger += randomCard.hunger;
+    } else if (randomCard.type === "strength") {
+      // Handle strength event card
+      bottlesCollected += randomCard.bottlesCollected;
+      // Add more conditionals for other event card types if needed
+    }
+    // Update the display
+    updateDisplay();
+
+    // Show the event card on the monitorBig
+    showEventCard(randomCard);
+  }
+}
+
+function showEventCard(eventCard) {
+  const monitorBig = document.querySelector(".monitorBig");
+
+  // Create the event card elements
+  const cardTitle = document.createElement("h2");
+  cardTitle.textContent = eventCard.title;
+
+  const cardDescription = document.createElement("p");
+  cardDescription.textContent = eventCard.description;
+
+  // Clear the monitorBig content
+  monitorBig.innerText = "";
+
+  // Append the event card elements to the monitorBig
+  monitorBig.appendChild(cardTitle);
+  monitorBig.appendChild(cardDescription);
+}
+
 // Function to handle checking if the player is starved
 function checkStarvation() {
-  if (hunger < 0) {
+  if (hunger <= 0) {
     // Display the game over message
-    document.querySelector(".monitorBig").textContent = "Du bist verhungert";
+    document.querySelector(".monitorBig").textContent =
+      "Game Over: You starved";
     hunger = 0;
 
-    // Disable the buttons
-    document
-      .querySelector("#collectButton")
-      .setAttribute("disabled", "disabled");
-    document
-      .querySelector("#exchangeButton")
-      .setAttribute("disabled", "disabled");
-    document.querySelector("#foodButton").setAttribute("disabled", "disabled");
-    document.querySelector("#partyButton").setAttribute("disabled", "disabled");
+    // Hide the buttons
+    document.querySelector("#collectButton").style.display = "none";
+    document.querySelector("#exchangeButton").style.display = "none";
+    document.querySelector("#foodButton").style.display = "none";
+    document.querySelector("#partyButton").style.display = "none";
   }
 
   if (hunger > 100) {
-    document.querySelector(".monitorBig").textContent = "Du bist satt";
+    document.querySelector(".monitorBig").textContent = "You are full";
     hunger = 100;
   }
 }
@@ -115,42 +184,63 @@ function collectBottles() {
     collectExperiencePoints(10);
   }
 
+  // Play an event card
+  playEventCard();
+
   // Update the display
   updateDisplay();
 }
 
 // Function to handle exchanging bottles for coins
 function exchangeBottles() {
-  // Calculate the number of coins based on the bottles collected
-  const exchangedCoins = Math.floor(bottles / 5);
+  // Check if there are enough bottles to exchange
+  if (bottlesCollected >= 5) {
+    // Calculate the number of coins based on the bottles collected
+    const exchangedCoins = Math.floor(bottles / 5);
 
-  // Update the coins and bottles count
-  coins += exchangedCoins;
-  bottlesCollected -= 5;
+    // Update the coins and bottles count
+    coins += exchangedCoins;
+    bottlesCollected -= 5;
 
-  // Update the display
-  updateDisplay();
+    // Update the display
+    updateDisplay();
+  } else {
+    // Display an alert for insufficient bottles
+    alert("Insufficient bottles available!");
+  }
 }
 
 // Function to handle buying food
 function buyFood() {
-  // Deduct coins and decrease hunger
-  coins -= 3;
-  hunger += 10;
+  // Check if there are enough coins to buy food
+  if (coins >= 3) {
+    // Deduct coins and increase hunger
+    coins -= 3;
+    hunger += 10;
 
-  // Update the display
-  updateDisplay();
+    // Update the display
+    updateDisplay();
+  } else {
+    // Display an alert for insufficient coins
+    alert("Insufficient coins available!");
+  }
 }
 
 // Function to handle making a party
 function makeParty() {
-  // Deduct coins, increase experience, and decrease hunger
-  coins -= 5;
-  collectExperiencePoints(5);
-  hunger -= 20;
+  // Check if there are enough coins to make a party
+  if (coins >= 5) {
+    // Deduct coins, increase experience, and decrease hunger
+    coins -= 5;
+    collectExperiencePoints(5);
+    hunger -= 20;
 
-  // Update the display
-  updateDisplay();
+    // Update the display
+    updateDisplay();
+  } else {
+    // Display an alert for insufficient coins
+    alert("Insufficient coins available!");
+  }
 }
 
 // Add event listeners to the buttons
