@@ -107,19 +107,19 @@ h1 {
 }
 
 .xp {
-	width: var(--experience, 10%); /* Set the width based on the experience variable */
+	width: var(--experience, 100%); /* Set the width based on the experience variable */
 	background-color: chocolate;
 	border: 1px solid black;
 }
 
 .food {
-	width: var(--hunger, 90%); /* Set the width based on the hunger variable */
+	width: var(--hunger, 100%); /* Set the width based on the hunger variable */
 	background-color: firebrick;
 	border: 1px solid black;
 }
 
 .mood {
-	width: var(--mood, 20%); /* Set the width based on the mood variable */
+	width: var(--mood, 100%); /* Set the width based on the mood variable */
 	background-color: darkkhaki;
 	border: 1px solid black;
 }
@@ -128,6 +128,7 @@ h1 {
 	 /* Set the width based on the coins variable */
 	background-color: rgb(118, 143, 141);
 }
+
 
 
 .monitorBig {
