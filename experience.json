@@ -1,0 +1,25 @@
+{
+    "experienceLevels": [
+      {
+        "level": 1,
+        "experiencePoints": 0
+      },
+      {
+        "level": 2,
+        "experiencePoints": 100
+      },
+      {
+        "level": 3,
+        "experiencePoints": 250
+      },
+      {
+        "level": 4,
+        "experiencePoints": 500
+      },
+      {
+        "level": 5,
+        "experiencePoints": 1000
+      }
+    ]
+  }
+  

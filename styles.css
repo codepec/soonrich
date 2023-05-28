@@ -1,130 +1,150 @@
-html,body {
-
-margin:0;
-padding:0;
-
-
+html, body {
+	margin: 0;
+	padding: 0;
 }
 
 .block {
-	background-color:#2a2a2e;
+	background-color: #3b4039;
 	margin: 30px;
 	box-shadow: 0px 0px 5px 5px black;
-	width: 50%;
-	position:absolute;
-	top:50%;
-	left:50%;
-	transform: translate(-50%, -50%);
-
-
+	width: 90%;
+	padding:25px;
 }
+
 body {
 	color: lightgray;
-	background-color:#2a2a2e;
-	box-shadow: inset 0px 0px 40px 0px #83bfff;
+	background-color: #2a2a2e;
 }
 
 
-.gameButtons{
 
+
+/* Gemeinsame Button-Stile */
+.gameButtons {
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
 	padding: 10px;
-	max-width:100%;
-	background-color: maroon;
 	border-radius: 15px;
 	border: 5px solid black;
-	cursor: pointer;
-	margin: 2px;
-	text-align:center;
-	justify-content:center;
-	
-}
+	text-align: center;
+	justify-content: center;
+	width: 200px;
+	background-color: maroon;
+	cursor:pointer;
+  }
+  
+  /* Button-Stile für iPhone-Geräte */
+  @media only screen and (max-width: 375px) and (max-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+	.gameButtons {
+	  /* Spezifische Stile für iPhone-Geräte */
+	  background-color: lightblue;
+	  color: white;
+	  font-size: 16px;
+	  width: 150px;
+	}
+  }
+  
 
-#uhr{
+#uhr {
 	text-align: right;
-
-
 }
 
-h1{
+h1 {
 	text-align: center;
 	font-size: 50px;
 }
 
-
-.gameButtons:hover{
-
+.gameButtons:hover {
 	box-shadow: 0px 0px 5px 5px white;
-
 }
 
-.containerFlex{
-	display:flex;
-	justify-content:center;	
-}
-
-.containerCenter{
- 
-  margin: auto;
-  width: 90%;
-  padding: 10px;
-	
+.containerFlex {
+	display: flex;
+	justify-content: center;
 }
 
 .material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 48px;  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
-  font-feature-settings: 'liga';
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 48px;
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
+	font-feature-settings: 'liga';
 }
 
-
-
-/* Make sure that padding behaves as expected */
-* {box-sizing:border-box}
-
-/* Container for skill bars */
 .containerBar {
-
-   /*width: 50%; Full width */
-  border: 2px solid black; 
+	border: 2px solid black;
 	margin: 2px;
+	width: 500px;
 }
 
 .skills {
-  text-align: left;
-  padding-top: 5px; /* Add top padding */
-  padding-bottom: 5px; /* Add bottom padding */
-  color: black; /*text color */
+	text-align: left;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: black;
+	width: 100%;
 }
 
-.xp {width: 40%; background-color: chocolate; border: 1px solid black;}
-.food {width: 90%; background-color: firebrick; border: 1px solid black;}
-.mood {width: 20%; background-color: darkkhaki; border: 1px solid black;} 
-.coins {width: 100%;} 
+.xp {
+	width: var(--experience, 10%); /* Set the width based on the experience variable */
+	background-color: chocolate;
+	border: 1px solid black;
+}
 
-.monitorBig{
+.food {
+	width: var(--hunger, 90%); /* Set the width based on the hunger variable */
+	background-color: firebrick;
+	border: 1px solid black;
+}
+
+.mood {
+	width: var(--mood, 20%); /* Set the width based on the mood variable */
+	background-color: darkkhaki;
+	border: 1px solid black;
+}
+
+.coins, .level, .bottles {
+	 /* Set the width based on the coins variable */
+	background-color: rgb(118, 143, 141);
+}
+
+
+.monitorBig {
 	padding: 100px;
-	background-color: gray;
-	border-radius: 15px;
-	border: 5px solid black;
-	
-	margin: 2px;
+	width: 100vh;
+	background-color: #000000;
+	color: aliceblue;
 }
+
+
+.containerCenter {
+	display: flex;
+	justify-content: center;
+  }
+  
+  .flex-container {
+	display: flex;
+  }
+  
+  
+  .card {
+
+	background-color: white;
+	color: black;
+	padding: 10px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+  }
+  
