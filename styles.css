@@ -15,6 +15,7 @@ html, body {
 body {
 	color: lightgray;
 	background-color: #2a2a2e;
+	touch-action: manipulation;
 }
 
 
