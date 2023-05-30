@@ -37,7 +37,7 @@ body {
 	font-family: Arial, sans-serif;
 	box-shadow: inset 0px 0px 10px 2px rgba(0, 0, 0, 0.8), 0px 0px 20px 5px rgba(255, 0, 0, 0.6); /* Roter Inset-Schatten mit äußerem Schatten */
 	margin: 2px; 
-	touch-action: none;
+
   }
   
   /* Button-Stile für iPhone-Geräte */
@@ -50,7 +50,7 @@ body {
 	  padding: 20px;
 	  box-shadow: inset 0px 0px 10px 2px rgba(0, 0, 0, 0.8), 0px 0px 20px 5px rgba(255, 0, 0, 0.6); /* Roter Inset-Schatten mit äußerem Schatten */
 	  margin: 2px; 
-	  touch-action: none;
+	  
 	}
   }
   
@@ -206,4 +206,8 @@ img{
   
   #storyButton{
 	width: 300px;
+  }
+
+  button{
+	touch-action: none;
   }
