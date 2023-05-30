@@ -1,14 +1,15 @@
 html, body {
 	margin: 0;
 	padding: 0;
+	
 }
 
 .block {
 	background-color: #3b4039;
 	margin: 30px;
 	box-shadow: 0px 0px 5px 5px black;
-	width: 90%;
 	padding:25px;
+	
 }
 
 body {
@@ -24,18 +25,18 @@ body {
 	-moz-user-select: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
-	padding: 10px;
+	padding: 20px;
 	border-radius: 15px;
 	border: none;
 	text-align: center;
 	justify-content: center;
-	width: 200px;
+
 	background-color: #660000; /* Dunkles Rot */
 	color: white;
 	cursor: pointer;
 	font-family: Arial, sans-serif;
 	box-shadow: inset 0px 0px 10px 2px rgba(0, 0, 0, 0.8), 0px 0px 20px 5px rgba(255, 0, 0, 0.6); /* Roter Inset-Schatten mit äußerem Schatten */
-	margin: 10px; 
+	margin: 2px; 
   }
   
   /* Button-Stile für iPhone-Geräte */
@@ -45,9 +46,9 @@ body {
 	  background-color: #550000; /* Dunkleres Rot */
 	  color: white;
 	  font-size: 16px;
-	  width: 150px;
+	  padding: 20px;
 	  box-shadow: inset 0px 0px 10px 2px rgba(0, 0, 0, 0.8), 0px 0px 20px 5px rgba(255, 0, 0, 0.6); /* Roter Inset-Schatten mit äußerem Schatten */
-	  margin: 10px; 
+	  margin: 2px; 
 	}
   }
   
@@ -62,7 +63,7 @@ body {
 
 h1 {
 	text-align: center;
-	font-size: 50px;
+	font-size: 15px;
 }
 
 .gameButtons:hover {
@@ -95,7 +96,7 @@ h1 {
 .containerBar {
 	border: 2px solid black;
 	margin: 2px;
-	width: 500px;
+	max-width: 400px;
 }
 
 .skills {
@@ -132,8 +133,7 @@ h1 {
 
 
 .monitorBig {
-	padding: 100px;
-	width: 100vh;
+	padding: 50px;
 	background-color: #1a1a1a; /* Dunkles Grau */
 	color: #cccccc; /* Hellgrau */
 	box-shadow: inset 0px 0px 20px 10px #000000; /* Dunkler Schatten */
@@ -142,8 +142,9 @@ h1 {
 
 
 .containerCenter {
-	display: flex;
 	justify-content: center;
+	align-items: center;
+	text-align: center;
   }
   
   .flex-container {
@@ -161,6 +162,8 @@ h1 {
   }
   
 
-
+img{
+	max-width: 200px;
+}
 
   
