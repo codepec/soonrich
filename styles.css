@@ -6,9 +6,9 @@ html, body {
 
 .block {
 	background-color: #3b4039;
-	margin: 30px;
+	margin: 10px;
 	box-shadow: 0px 0px 5px 5px black;
-	padding:25px;
+	padding:1px;
 	
 }
 
@@ -53,7 +53,12 @@ body {
   }
   
   
-  
+  .progress-container{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
   
   
 
@@ -64,6 +69,18 @@ body {
 h1 {
 	text-align: center;
 	font-size: 15px;
+}
+
+h2 {
+	text-align: center;
+	font-size: 25px;
+	margin:5px;
+}
+
+p{
+	text-align: center;
+	font-size: 12px;
+	margin:0px;
 }
 
 .gameButtons:hover {
@@ -93,51 +110,18 @@ h1 {
 	font-feature-settings: 'liga';
 }
 
-.containerBar {
-	border: 2px solid black;
-	margin: 2px;
-	max-width: 400px;
-}
 
-.skills {
-	text-align: left;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	color: black;
-	width: 100%;
-}
 
-.xp {
-	width: var(--experience, 100%); /* Set the width based on the experience variable */
-	background-color: chocolate;
-	border: 1px solid black;
-}
-
-.food {
-	width: var(--hunger, 100%); /* Set the width based on the hunger variable */
-	background-color: firebrick;
-	border: 1px solid black;
-}
-
-.mood {
-	width: var(--mood, 100%); /* Set the width based on the mood variable */
-	background-color: darkkhaki;
-	border: 1px solid black;
-}
-
-.coins, .level, .bottles {
-	 /* Set the width based on the coins variable */
-	background-color: rgb(118, 143, 141);
-}
 
 
 
 .monitorBig {
-	padding: 50px;
+	padding: 30px;
 	background-color: #1a1a1a; /* Dunkles Grau */
 	color: #cccccc; /* Hellgrau */
 	box-shadow: inset 0px 0px 20px 10px #000000; /* Dunkler Schatten */
-  }
+	border-radius: 15px;
+}
   
 
 
@@ -163,7 +147,61 @@ h1 {
   
 
 img{
-	max-width: 200px;
+	max-width: 100px;
+	border-radius: 15px;
+	box-shadow: 0px 0px 2px 2px #000000;
 }
 
   
+
+.containerFlex {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+  }
+  
+  .containerBar {
+	width: 100px;
+	height: 10px;
+	background-color: lightgray;
+	margin-right: 5px; /* Add margin to create spacing between bars */
+	margin-bottom: 10px; /* Add margin to create spacing between rows */
+	font-size: 12px;  
+	padding: 2px;
+	text-align: center;
+	line-height: 1;
+	border: 1px solid #000000;
+	}
+  
+  .level {
+	background-color: rgb(65, 80, 79);
+  }
+  
+  .xp {
+	background-color: #598b5b;
+	color: white;
+  }
+  
+  .food {
+	background-color: #9c453f;
+	color: white;
+	width: var(--food, 100%);
+	transition: width 0.3s ease;
+	margin-left: 5px;
+	}
+  
+
+  
+  .coins {
+	background-color: #5d5e5d;
+	color: white;
+  }
+  
+  .bottles {
+	background-color: #2471b1;
+	color: white;
+  }
+  
+  #storyButton{
+	width: 300px;
+  }

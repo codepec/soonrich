@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>soon rich by codepec</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta charset="utf-8">
 <script src="script.js" defer></script>
 <script src="clockscript.js" defer></script>
@@ -25,31 +25,44 @@
   <div class="containerCenter">
   
 
-      <div class="progress-container">
-        <div class="containerBar">
-          <div id="levelField" class="skills level">Level: 1</div>
-        </div>
-        <div class="containerBar">
-          <div id="xpField" class="skills xp">Experience: 100%</div>
-        </div>
+    <div class="progress-container">
+      <div class="containerBar xp">
+        <div class="skills">Experience</div>
+        <div class="progress"></div>
+      </div>
+      <div class="containerBar level">
+        <div class="skills">Level</div>
+        <div class="progress"></div>
+      </div>
+    </div>
+    
+    <div class="progress-container">
+      <div class="containerBar food">
+        <div class="skills">Food</div>
+        <div class="progress"></div>
+      </div>
+      <!--
+      <div class="containerBar mood">
+        <div class="skills">Mood</div>
+        <div class="progress">20%</div>
+      </div>
+      -->
+    </div>
+    
+    <div class="progress-container">
+      <div class="containerBar coins">
+        <div class="skills">Coins</div>
+        <div class="progress"></div>
+      </div>
+      <div class="containerBar bottles">
+        <div class="skills">Bottles</div>
+        <div class="progress"></div>
+      </div>
+    </div>
+    
 
-        <div class="profile" id="character">
-          <img src="img/profile0.jpg" class="profile-image" alt="Profilbild">
-        </div>
-
-        <div class="containerBar">
-          <div id="foodField" class="skills food">Hunger: 100%</div>
-        </div>
-        <div class="containerBar">
-          <div id="moodField" class="skills mood">Mood: 100%</div>
-        </div>
-        <div class="containerBar">
-          <div id="coinsField" class="skills coins">Coins: 0</div>
-        </div>
-        <div class="containerBar">
-          <div id="bottlesField" class="skills bottles">Bottles: 0</div>
-        </div>
-
+      <div class="profile" id="character">
+        <img src="img/profile0.jpg" class="profile-image" alt="Profilbild">
       </div>
     
   </div>
@@ -76,26 +89,34 @@
 
     <div class="gameButtons" id="collectButton">
       <span class="material-icons">liquor</span>
-    <!--  <p>collect bottles</p>    -->
+    <p>collect</p>
     </div>
 
     <div class="gameButtons" id="exchangeButton">
       <span class="material-icons">paid</span>
-     <!--  <p>exchange</p>-->
+     <p>change</p>
     </div>
 
     <div class="gameButtons" id="foodButton">
       <span class="material-icons">fastfood</span>
-     <!--  <p>get some food</p>-->
+     <p>get food</p>
     </div>
 
     <div class="gameButtons" id="partyButton">
       <span class="material-icons">celebration</span>
-     <!--  <p>party hard</p>-->
+     <p>party hard</p>
     </div>
+
 
  
 
+  </div>
+
+  <div class="containerFlex">
+    <div class="gameButtons" id="storyButton">
+      <span class="material-icons">extension</span>
+    <p>story</p>
+    </div>
   </div>
 
 </div>
