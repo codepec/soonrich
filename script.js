@@ -139,11 +139,11 @@ function playEventCard() {
       // Handle weakness event card
       collectExperiencePoints(randomCard.experience);
       food += randomCard.food;
-      bottlesCollected += randomCard.bottlesCollected;
+      //bottlesCollected += randomCard.bottlesCollected; Funktioniert noch nicht
     } else if (randomCard.type === "strength") {
       // Handle strength event card
       bottlesCollected += randomCard.bottlesCollected;
-      food += randomCard.food;
+      //food += randomCard.food; Funktioniert noch nicht
       // Add more conditionals for other event card types if needed
     }
     // Update the display
