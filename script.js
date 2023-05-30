@@ -182,18 +182,21 @@ const storyCards = [
     title: "Einleitung",
     description:
       "In einer kleinen Stadt lebte ein bescheidener Flaschensammler namens Emil. Tag für Tag durchstreifte er die Straßen, auf der Suche nach leeren Flaschen, die er gegen ein paar Münzen eintauschen konnte. Emil war bekannt für seine Ausdauer und Hartnäckigkeit. Obwohl sein Leben einfach war, träumte er insgeheim von aufregenden Abenteuern und neuen Begegnungen.",
+    requirement: "1",
   },
   {
     type: "story",
     title: "Erste Begegnung im Hinterhof",
     description:
       "Eines Tages, als Emil in einem abgelegenen Hinterhof nach Flaschen suchte, hörte er ein Geräusch hinter einer alten Holzkiste. Neugierig ging er näher heran und entdeckte eine Gruppe von Kindern, die sich dort versteckt hatten. Sie hatten einen geheimen Club gegründet und waren fasziniert von Emils Sammlung leerer Flaschen. Emil teilte seine Geschichten über das Sammeln von Flaschen und begeisterte die Kinder. Sie schlossen ihn in ihre Gemeinschaft ein und wurden zu treuen Begleitern auf seinen Abenteuern.",
+    requirement: "5",
   },
   {
     type: "story",
     title: "Aufführung auf dem Marktplatz",
     description:
       "Die Kinder hatten eine brillante Idee: Sie wollten eine Aufführung auf dem belebten Marktplatz organisieren, um Geld für wohltätige Zwecke zu sammeln. Emil war zunächst zögerlich, aber die Begeisterung der Kinder steckte ihn an. Sie probten eifrig und entwickelten eine erstaunliche Darbietung, die die Herzen der Menschen berührte. Emil wurde zu ihrem größten Unterstützer und half dabei, die Aufführung zu organisieren. Die Menschen auf dem Marktplatz waren von der Leidenschaft und dem Talent der Kinder beeindruckt und spendeten großzügig für den guten Zweck.",
+    requirement: "8",
   },
   {
     type: "story",
@@ -201,9 +204,37 @@ const storyCards = [
       "Halt und Zuversicht für ein neues Leben durch seine drei neuen Freunde",
     description:
       "Während Emil mit den Kindern auf seinen Abenteuern unterwegs war, wurde er von ihrer Energie und ihrem Optimismus inspiriert. Er erzählte ihnen von seinen persönlichen Herausforderungen und seinem Wunsch nach einem besseren Leben. Die Kinder versprachen, ihm zu helfen, und sie begannen, gemeinsam nach Lösungen zu suchen. Durch ihre Kontakte und Bemühungen gelang es ihnen, Emil eine Anstellung in einem nahegelegenen Recyclingunternehmen zu verschaffen. Emil fand nicht nur eine neue berufliche Perspektive, sondern auch Halt und Zuversicht für ein neues Leben durch seine drei neuen Freunde. Emil lernte, dass wahre Schätze nicht immer aus materiellen Dingen bestehen. Durch sein Engagement und seine Begeisterung für das Sammeln von Flaschen hatte er wertvolle Begegnungen und eine Gemeinschaft von mitfühlenden Menschen gefunden. Zusammen erlebten sie spannende Abenteuer, die Emils Leben bereicherten und ihm zeigten, dass man manchmal mehr erreichen kann, wenn man gemeinsam an einem Strang zieht. Diese Geschichte erzählt von Emils Reise als Flaschensammler und den wunderbaren Menschen, die sein Leben bereicherten. Sie zeigt, wie kleine Taten der Freundlichkeit und Mitmenschlichkeit große Veränderungen bewirken können und dass manchmal die einfachsten Dinge die größten Schätze bergen.",
+    requirement: "12",
   },
   // Add more event cards here
 ];
+
+function getCurrentLevel() {
+  return level;
+}
+
+function playStoryCard() {
+  const currentLevel = getCurrentLevel(); // Hier musst du den aktuellen Level-Wert erhalten
+
+  // Überprüfe, ob das Level den Anforderungen der Story-Karte entspricht
+  const eligibleStoryCards = storyCards.filter((storyCard) => {
+    return parseInt(storyCard.requirement) <= currentLevel;
+  });
+
+  if (eligibleStoryCards.length > 0) {
+    const randomIndex = Math.floor(Math.random() * eligibleStoryCards.length);
+    const selectedStoryCard = eligibleStoryCards[randomIndex];
+
+    // Update the display
+    updateDisplay();
+
+    // Show the selected story card on the monitorBig
+    showStoryCard(selectedStoryCard);
+  } else {
+    // Keine passende Story-Karte für das aktuelle Level gefunden
+    console.log("Keine passende Story-Karte gefunden.");
+  }
+}
 
 function showStoryCard(storyCard) {
   const monitorBig = document.querySelector(".monitorBig");
@@ -396,25 +427,7 @@ function makeParty(event) {
 
 // Function to handle clicking the story button
 function handleStoryButtonClick() {
-  if (level > 1 && level < 5) {
-    alert("Level 5 required to continue the story");
-  } else if (level >= 5 && level < 8) {
-    alert("Level 8 required to continue the story");
-  } else if (level >= 8 && level < 12) {
-    alert("Level 12 required to continue the story");
-  } else if (level === 1) {
-    document.querySelector(".monitorBig").textContent =
-      "In einer kleinen Stadt lebte ein bescheidener Flaschensammler namens Emil. Tag für Tag durchstreifte er die Straßen, auf der Suche nach leeren Flaschen, die er gegen ein paar Münzen eintauschen konnte. Emil war bekannt für seine Ausdauer und Hartnäckigkeit. Obwohl sein Leben einfach war, träumte er insgeheim von aufregenden Abenteuern und neuen Begegnungen.";
-  } else if (level === 5) {
-    alert("Level 12 required to continue the story");
-  } else if (level === 8) {
-    alert("Level 12 required to continue the story");
-  } else if (level === 12) {
-    alert("Level 12 required to continue the story");
-  } else {
-    // Hier können Sie den Code für die tatsächliche Story-Weiterführung einfügen
-    alert("End");
-  }
+  playStoryCard();
 }
 
 // Add event listener to the story button
