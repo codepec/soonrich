@@ -31,13 +31,14 @@ body {
 	border: none;
 	text-align: center;
 	justify-content: center;
-
-	background-color: #660000; /* Dunkles Rot */
+	margin: 2px; 
+	background-color: #63636363;  
+	/*background-color: #660000;  
 	color: white;
 	cursor: pointer;
 	font-family: Arial, sans-serif;
-	box-shadow: inset 0px 0px 10px 2px rgba(0, 0, 0, 0.8), 0px 0px 20px 5px rgba(255, 0, 0, 0.6); /* Roter Inset-Schatten mit äußerem Schatten */
-	margin: 2px; 
+	box-shadow: inset 0px 0px 10px 2px rgba(0, 0, 0, 0.8), 0px 0px 20px 5px rgba(255, 0, 0, 0.6);  */
+
 
   }
   
