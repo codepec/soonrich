@@ -33,84 +33,68 @@ const eventCards = [
     type: "weakness",
     title: "Rat Bite",
     description: "You were bitten by a rat! Food -20% and a risk of infection.",
+    experience: 10,
     food: -20,
-    levelRequirement: 1,
   },
   {
     type: "weakness",
     title: "Glass Shard Injury",
     description:
       "You accidentally cut yourself on a glass shard. Food -20% and a painful wound.",
+    experience: 10,
     food: -20,
-    levelRequirement: 3,
   },
   {
     type: "weakness",
     title: "Tick Bite",
     description:
       "You got bitten by a tick! Food -20% and a possibility of contracting a disease.",
+    experience: 10,
     food: -20,
-    levelRequirement: 6,
   },
   {
     type: "weakness",
     title: "Dog Bite",
     description:
       "A dog bit you while collecting bottles. Food -20% and a deep wound.",
+    experience: 10,
     food: -20,
-    levelRequirement: 9,
   },
   {
     type: "weakness",
     title: "Slipped on a Banana Peel",
     description: "You slipped on a banana peel! Food -20% and a bruised ego.",
+    experience: 10,
     food: -20,
-    levelRequirement: 11,
   },
   {
     type: "weakness",
     title: "Mugged",
     description:
       "You were mugged while collecting bottles. Food -20% and all your collected bottles were taken.",
+    experience: 10,
     food: -20,
-    bottlesCollected: 0,
-    levelRequirement: 14,
   },
   {
     type: "strength",
     title: "Helping Hand",
     description: "A kind stranger helps you and gives you +50 bottles!",
     bottlesCollected: 50,
-    levelRequirement: 2,
+    bottles: 50,
   },
   {
     type: "strength",
     title: "Hidden Treasure",
     description: "You stumble upon a hidden treasure and collect +100 bottles!",
     bottlesCollected: 100,
-    levelRequirement: 4,
+    bottles: 100,
   },
   {
     type: "strength",
     title: "Generous Donation",
     description: "Someone donates +200 bottles to your collection!",
     bottlesCollected: 200,
-    levelRequirement: 7,
-  },
-  {
-    type: "strength",
-    title: "Lucky Coin",
-    description: "You find a lucky coin and gain +10% food!",
-    food: 10,
-    levelRequirement: 10,
-  },
-  {
-    type: "strength",
-    title: "Guardian Angel",
-    description:
-      "A kind-hearted person offers you a meal. Food +30% and renewed hope.",
-    food: 30,
-    levelRequirement: 13,
+    bottles: 200,
   },
   {
     type: "strength",
@@ -118,7 +102,6 @@ const eventCards = [
     description:
       "The local community rallies behind you and donates +500 bottles!",
     bottlesCollected: 500,
-    levelRequirement: 16,
   },
 
   // Add more event cards here
