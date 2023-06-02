@@ -1,25 +1,86 @@
 {
-    "experienceLevels": [
-      {
-        "level": 1,
-        "experiencePoints": 0
-      },
-      {
-        "level": 2,
-        "experiencePoints": 100
-      },
-      {
-        "level": 3,
-        "experiencePoints": 250
-      },
-      {
-        "level": 4,
-        "experiencePoints": 500
-      },
-      {
-        "level": 5,
-        "experiencePoints": 1000
-      }
-    ]
-  }
+  "experienceLevels": [
+    {
+      "level": 1,
+      "experience": 0
+    },
+    {
+      "level": 2,
+      "experience": 100
+    },
+    {
+      "level": 3,
+      "experience": 200
+    },
+    {
+      "level": 4,
+      "experience": 300
+    },
+    {
+      "level": 5,
+      "experience": 400
+    },
+    {
+      "level": 6,
+      "experience": 500
+    },
+    {
+      "level": 7,
+      "experience": 600
+    },
+    {
+      "level": 8,
+      "experience": 700
+    },
+    {
+      "level": 9,
+      "experience": 800
+    },
+    {
+      "level": 10,
+      "experience": 900
+    },
+    {
+      "level": 11,
+      "experience": 1000
+    },
+    {
+      "level": 12,
+      "experience": 2000
+    },
+    {
+      "level": 13,
+      "experience": 3000
+    },
+    {
+      "level": 14,
+      "experience": 4000
+    },
+    {
+      "level": 15,
+      "experience": 5000
+    },
+    {
+      "level": 16,
+      "experience": 6000
+    },
+    {
+      "level": 17,
+      "experience": 7000
+    },
+    {
+      "level": 18,
+      "experience": 8000
+    },
+    {
+      "level": 19,
+      "experience": 9000
+    },
+    {
+      "level": 20,
+      "experience": 10000
+    }
+  ]
+}
+
   

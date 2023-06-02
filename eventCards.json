@@ -1,0 +1,106 @@
+[
+  {
+    "type": "weakness",
+    "title": "Drinking Party",
+    "description": "A wild night of partying awaits you! Experience +100 and Food -50%. Let loose, dance, and drink until the sun comes up. But be warned, the next morning might not be so pleasant.",
+    "experience": 100,
+    "food": -50,
+    "requirement": 1
+  },
+  {
+    "type": "strength",
+    "title": "Lucky Find",
+    "description": "You are a lucky person and find +100 bottles!",
+    "bottlesCollected": 100,
+    "bottles": 100,
+    "requirement": 1
+  },
+  {
+    "type": "strength",
+    "title": "Meet Colleagues",
+    "description": "You meet your colleagues and collect +50 bottles!",
+    "bottlesCollected": 50,
+    "bottles": 50,
+    "requirement": 1
+  },
+  {
+    "type": "weakness",
+    "title": "Rat Bite",
+    "description": "You were bitten by a rat! Food -20% and a risk of infection.",
+    "experience": 10,
+    "food": -20,
+    "requirement": 1
+  },
+  {
+    "type": "weakness",
+    "title": "Glass Shard Injury",
+    "description": "You accidentally cut yourself on a glass shard. Food -20% and a painful wound.",
+    "experience": 10,
+    "food": -20,
+    "requirement": 1
+  },
+  {
+    "type": "weakness",
+    "title": "Tick Bite",
+    "description": "You got bitten by a tick! Food -20% and a possibility of contracting a disease.",
+    "experience": 10,
+    "food": -20,
+    "requirement": 1
+  },
+  {
+    "type": "weakness",
+    "title": "Dog Bite",
+    "description": "A dog bit you while collecting bottles. Food -20% and a deep wound.",
+    "experience": 10,
+    "food": -20,
+    "requirement": 1
+  },
+  {
+    "type": "weakness",
+    "title": "Slipped on a Banana Peel",
+    "description": "You slipped on a banana peel! Food -20% and a bruised ego.",
+    "experience": 10,
+    "food": -20,
+    "requirement": 1
+  },
+  {
+    "type": "weakness",
+    "title": "Mugged",
+    "description": "You were mugged while collecting bottles. Food -20% and all your collected bottles were taken.",
+    "experience": 10,
+    "food": -20,
+    "requirement": 1
+  },
+  {
+    "type": "strength",
+    "title": "Helping Hand",
+    "description": "A kind stranger helps you and gives you +50 bottles!",
+    "bottlesCollected": 50,
+    "bottles": 50,
+    "requirement": 1
+  },
+  {
+    "type": "strength",
+    "title": "Hidden Treasure",
+    "description": "You stumble upon a hidden treasure and collect +100 bottles!",
+    "bottlesCollected": 100,
+    "bottles": 100,
+    "requirement": 1
+  },
+  {
+    "type": "strength",
+    "title": "Generous Donation",
+    "description": "Someone donates +200 bottles to your collection!",
+    "bottlesCollected": 200,
+    "bottles": 200,
+    "requirement": 1
+  },
+  {
+    "type": "strength",
+    "title": "Community Support",
+    "description": "The local community rallies behind you and donates +500 bottles!",
+    "bottlesCollected": 500,
+    "bottles": 500,
+    "requirement": 1
+  }
+]

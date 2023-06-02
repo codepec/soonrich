@@ -1,4 +1,5 @@
 // Initialize game variables
+
 let bottles = 0;
 let coins = 0;
 let experience = 1;
@@ -6,106 +7,48 @@ let level = 1;
 let food = 90;
 let bottlesCollected = 0;
 
-const eventCards = [
-  {
-    type: "weakness",
-    title: "Drinking Party",
-    description:
-      "A wild night of partying awaits you! Experience +100 and Food -50%. Let loose, dance, and drink until the sun comes up. But be warned, the next morning might not be so pleasant.",
-    experience: 100,
-    food: -50,
-  },
-  {
-    type: "strength",
-    title: "Lucky Find",
-    description: "You are a lucky person and find +100 bottles!",
-    bottlesCollected: 100,
-    bottles: 100,
-  },
-  {
-    type: "strength",
-    title: "Meet Colleagues",
-    description: "You meet your colleagues and collect +50 bottles!",
-    bottlesCollected: 50,
-    bottles: 50,
-  },
-  {
-    type: "weakness",
-    title: "Rat Bite",
-    description: "You were bitten by a rat! Food -20% and a risk of infection.",
-    experience: 10,
-    food: -20,
-  },
-  {
-    type: "weakness",
-    title: "Glass Shard Injury",
-    description:
-      "You accidentally cut yourself on a glass shard. Food -20% and a painful wound.",
-    experience: 10,
-    food: -20,
-  },
-  {
-    type: "weakness",
-    title: "Tick Bite",
-    description:
-      "You got bitten by a tick! Food -20% and a possibility of contracting a disease.",
-    experience: 10,
-    food: -20,
-  },
-  {
-    type: "weakness",
-    title: "Dog Bite",
-    description:
-      "A dog bit you while collecting bottles. Food -20% and a deep wound.",
-    experience: 10,
-    food: -20,
-  },
-  {
-    type: "weakness",
-    title: "Slipped on a Banana Peel",
-    description: "You slipped on a banana peel! Food -20% and a bruised ego.",
-    experience: 10,
-    food: -20,
-  },
-  {
-    type: "weakness",
-    title: "Mugged",
-    description:
-      "You were mugged while collecting bottles. Food -20% and all your collected bottles were taken.",
-    experience: 10,
-    food: -20,
-  },
-  {
-    type: "strength",
-    title: "Helping Hand",
-    description: "A kind stranger helps you and gives you +50 bottles!",
-    bottlesCollected: 50,
-    bottles: 50,
-  },
-  {
-    type: "strength",
-    title: "Hidden Treasure",
-    description: "You stumble upon a hidden treasure and collect +100 bottles!",
-    bottlesCollected: 100,
-    bottles: 100,
-  },
-  {
-    type: "strength",
-    title: "Generous Donation",
-    description: "Someone donates +200 bottles to your collection!",
-    bottlesCollected: 200,
-    bottles: 200,
-  },
-  {
-    type: "strength",
-    title: "Community Support",
-    description:
-      "The local community rallies behind you and donates +500 bottles!",
-    bottlesCollected: 500,
-  },
+async function loadExperienceData() {
+  const response = await fetch("experience.json"); // Lade die JSON-Datei
+  experienceData = await response.json(); // Speichere die Daten in der Variable
+}
 
-  // Add more event cards here
-];
+loadExperienceData();
+
+let eventCards; // Variable zum Speichern der Event-Karten aus der JSON-Datei
+
+// Laden der JSON-Datei
+fetch("eventCards.json")
+  .then((response) => response.json())
+  .then((data) => {
+    eventCards = data; // Speichern der Event-Karten in der Variable
+    console.log("Event Cards:", eventCards); // Überprüfen der geladenen Event-Karten
+  })
+  .catch((error) => {
+    console.log("Fehler beim Laden der Event-Karten:", error);
+  });
+
+fetch("experience.json")
+  .then((response) => response.json())
+  .then((data) => {
+    // Hier kannst du mit den geladenen Erfahrungswerten arbeiten
+    console.log("Experience:", data);
+  })
+  .catch((error) => {
+    console.log("Fehler beim Laden der Erfahrungswerte:", error);
+  });
+
+let storyCards; // Variable zum Speichern der Story-Karten aus der JSON-Datei
+
+// Laden der JSON-Datei
+fetch("storyCards.json")
+  .then((response) => response.json())
+  .then((data) => {
+    storyCards = data; // Speichern der Story-Karten in der Variable
+    console.log("Story Cards:", storyCards); // Überprüfen der geladenen Story-Karten
+  })
+  .catch((error) => {
+    console.log("Fehler beim Laden der Story-Karten:", error);
+  });
 
 function playEventCard() {
   // Generate a random number between 1 and 20
@@ -175,39 +118,6 @@ function checkStarvation() {
     food = 100;
   }
 }
-
-const storyCards = [
-  {
-    type: "story",
-    title: "Einleitung",
-    description:
-      "In einer kleinen Stadt lebte ein bescheidener Flaschensammler namens Emil. Tag für Tag durchstreifte er die Straßen, auf der Suche nach leeren Flaschen, die er gegen ein paar Münzen eintauschen konnte. Emil war bekannt für seine Ausdauer und Hartnäckigkeit. Obwohl sein Leben einfach war, träumte er insgeheim von aufregenden Abenteuern und neuen Begegnungen.",
-    requirement: "1",
-  },
-  {
-    type: "story",
-    title: "Erste Begegnung im Hinterhof",
-    description:
-      "Eines Tages, als Emil in einem abgelegenen Hinterhof nach Flaschen suchte, hörte er ein Geräusch hinter einer alten Holzkiste. Neugierig ging er näher heran und entdeckte eine Gruppe von Kindern, die sich dort versteckt hatten. Sie hatten einen geheimen Club gegründet und waren fasziniert von Emils Sammlung leerer Flaschen. Emil teilte seine Geschichten über das Sammeln von Flaschen und begeisterte die Kinder. Sie schlossen ihn in ihre Gemeinschaft ein und wurden zu treuen Begleitern auf seinen Abenteuern.",
-    requirement: "5",
-  },
-  {
-    type: "story",
-    title: "Aufführung auf dem Marktplatz",
-    description:
-      "Die Kinder hatten eine brillante Idee: Sie wollten eine Aufführung auf dem belebten Marktplatz organisieren, um Geld für wohltätige Zwecke zu sammeln. Emil war zunächst zögerlich, aber die Begeisterung der Kinder steckte ihn an. Sie probten eifrig und entwickelten eine erstaunliche Darbietung, die die Herzen der Menschen berührte. Emil wurde zu ihrem größten Unterstützer und half dabei, die Aufführung zu organisieren. Die Menschen auf dem Marktplatz waren von der Leidenschaft und dem Talent der Kinder beeindruckt und spendeten großzügig für den guten Zweck.",
-    requirement: "8",
-  },
-  {
-    type: "story",
-    title:
-      "Halt und Zuversicht für ein neues Leben durch seine drei neuen Freunde",
-    description:
-      "Während Emil mit den Kindern auf seinen Abenteuern unterwegs war, wurde er von ihrer Energie und ihrem Optimismus inspiriert. Er erzählte ihnen von seinen persönlichen Herausforderungen und seinem Wunsch nach einem besseren Leben. Die Kinder versprachen, ihm zu helfen, und sie begannen, gemeinsam nach Lösungen zu suchen. Durch ihre Kontakte und Bemühungen gelang es ihnen, Emil eine Anstellung in einem nahegelegenen Recyclingunternehmen zu verschaffen. Emil fand nicht nur eine neue berufliche Perspektive, sondern auch Halt und Zuversicht für ein neues Leben durch seine drei neuen Freunde. Emil lernte, dass wahre Schätze nicht immer aus materiellen Dingen bestehen. Durch sein Engagement und seine Begeisterung für das Sammeln von Flaschen hatte er wertvolle Begegnungen und eine Gemeinschaft von mitfühlenden Menschen gefunden. Zusammen erlebten sie spannende Abenteuer, die Emils Leben bereicherten und ihm zeigten, dass man manchmal mehr erreichen kann, wenn man gemeinsam an einem Strang zieht. Diese Geschichte erzählt von Emils Reise als Flaschensammler und den wunderbaren Menschen, die sein Leben bereicherten. Sie zeigt, wie kleine Taten der Freundlichkeit und Mitmenschlichkeit große Veränderungen bewirken können und dass manchmal die einfachsten Dinge die größten Schätze bergen.",
-    requirement: "12",
-  },
-  // Add more event cards here
-];
 
 function getCurrentLevel() {
   return level;
@@ -296,48 +206,44 @@ function updateDisplay() {
 
 // Function to calculate the remaining experience until the next level
 function calculateRemainingXP() {
-  // Calculate the experience required for the next level
-  const nextLevelXP = (level + 1) * 100;
+  const { experienceLevels } = experienceData; // Read the experience levels from the JSON data
 
-  // Calculate the remaining experience until the next level
-  const remainingXP = nextLevelXP;
+  // Find the next level
+  const nextLevel = experienceLevels.find(
+    (levelData) => levelData.level > level
+  );
 
-  return remainingXP;
+  if (nextLevel) {
+    // Calculate the remaining experience until the next level
+    const remainingXP = nextLevel.experience;
+    return remainingXP;
+  } else {
+    // If there is no next level, the player has reached the maximum level
+    return 0;
+  }
 }
+
+let experienceData; // Variable zum Speichern der Erfahrungspunkte und des Levels aus der JSON-Datei
 
 // Function to update the level based on experience points
 function updateLevel() {
-  if (experience >= 100 && experience < 200) {
-    level = 2;
-  } else if (experience >= 200 && experience < 300) {
-    level = 3;
-  } else if (experience >= 300 && experience < 500) {
-    level = 4;
-  } else if (experience >= 500 && experience < 1000) {
-    level = 5;
-  } else if (experience >= 1000 && experience < 2000) {
-    level = 6;
-  } else if (experience >= 2000 && experience < 3000) {
-    level = 7;
-  } else if (experience >= 3000 && experience < 4000) {
-    level = 8;
-  } else if (experience >= 4000 && experience < 5000) {
-    level = 9;
-  } else if (experience >= 5000 && experience < 6000) {
-    level = 10;
-  } else if (experience >= 6000 && experience < 7000) {
-    level = 11;
-  } else if (experience >= 10000) {
-    level = 12;
+  const { experienceLevels } = experienceData; // Hole die Level-Informationen aus der JSON-Datei
+  console.log(experienceData);
+  for (const levelData of experienceLevels) {
+    if (experience >= levelData.experience) {
+      level = levelData.level; // Setze das Level basierend auf den Erfahrungspunkten aus der JSON-Datei
+    } else {
+      break; // Breche die Schleife ab, wenn das aktuelle Level gefunden wurde
+    }
   }
+
   // Update the profile picture
   updateProfilePicture();
 }
 
 // Function to handle collecting experience points
 function collectExperiencePoints(points) {
-  // Increase the experience points
-  experience += points;
+  experience += points; // Erhöhe die Erfahrungspunkte
 
   // Update the level based on experience points
   updateLevel();
