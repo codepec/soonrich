@@ -263,7 +263,7 @@ function collectBottles(event) {
   // Check if the player has leveled up
   if (bottles % 10 === 0) {
     // Increase experience points
-    collectExperiencePoints(10);
+    collectExperiencePoints(25);
   }
 
   // Play an event card
@@ -320,7 +320,7 @@ function makeParty(event) {
   if (coins >= 5) {
     // Deduct coins, increase experience, and decrease food
     coins -= 5;
-    collectExperiencePoints(5);
+    collectExperiencePoints(35);
     food -= 20;
 
     // Update the display
