@@ -2,7 +2,7 @@
 let bottles = 0;
 let coins = 0;
 let experience = 1;
-let level = 1;
+let level = 0;
 let food = 90;
 let bottlesCollected = 0;
 let factor = 1;
@@ -33,19 +33,19 @@ async function loadExperienceData() {
 async function loadEventCards() {
   const response = await fetch("eventCards.json");
   eventCards = await response.json();
-  console.log("Event Cards:", eventCards);
+  //console.log("Event Cards:", eventCards);
 }
 
 async function loadItemCards() {
   const response = await fetch("itemCards.json");
   itemCards = await response.json();
-  console.log("Item Cards:", itemCards);
+  //console.log("Item Cards:", itemCards);
 }
 
 async function loadStoryCards() {
   const response = await fetch("storyCards.json");
   storyCards = await response.json();
-  console.log("Story Cards:", storyCards);
+  //console.log("Story Cards:", storyCards);
 }
 
 loadExperienceData();
@@ -258,7 +258,7 @@ function calculateRemainingXP() {
 // Function to update the level based on experience points
 function updateLevel() {
   const { experienceLevels } = experienceData; // Hole die Level-Informationen aus der JSON-Datei
-  console.log(experienceData);
+  //console.log(experienceData);
   for (const levelData of experienceLevels) {
     if (experience >= levelData.experience) {
       level = levelData.level; // Setze das Level basierend auf den Erfahrungspunkten aus der JSON-Datei
