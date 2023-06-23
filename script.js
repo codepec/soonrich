@@ -6,7 +6,7 @@ let level = 0;
 let food = 90;
 let bottlesCollected = 0;
 let factor = 1;
-let itemTitle = "Empty";
+let itemTitleDefault = "Empty";
 let experienceData;
 let eventCards;
 let itemCards;
@@ -15,13 +15,13 @@ let factorHat = 1;
 let factorCoat = 1;
 let factorRing = 1;
 let factorAmulet = 1;
-let titleHat = "kein Item";
+let titleHat = "no item";
 let descriptionHat = "";
-let titleCoat = "kein Item";
+let titleCoat = "no item";
 let descriptionCoat = "";
-let titleRing = "kein Item";
+let titleRing = "no item";
 let descriptionRing = "";
-let titleAmulet = "kein Item";
+let titleAmulet = "no item";
 let descriptionAmulet = "";
 
 async function loadExperienceData() {
@@ -127,9 +127,9 @@ function getCurrentLevel() {
 }
 
 function playStoryCard() {
-  const currentLevel = getCurrentLevel(); // Hier musst du den aktuellen Level-Wert erhalten
+  const currentLevel = getCurrentLevel(); // Here you need to get the current level value
 
-  // Überprüfe, ob das Level den Anforderungen der Story-Karte entspricht
+  // Check if the level meets the requirements of the story card
   const eligibleStoryCards = storyCards.filter((storyCard) => {
     return parseInt(storyCard.requirement) <= currentLevel;
   });
@@ -144,8 +144,8 @@ function playStoryCard() {
     // Show the selected story card on the monitorBig
     showStoryCard(selectedStoryCard);
   } else {
-    // Keine passende Story-Karte für das aktuelle Level gefunden
-    console.log("Keine passende Story-Karte gefunden.");
+    // No suitable story card found for the current level
+    console.log("No suitable story card found.");
   }
 }
 
@@ -177,12 +177,12 @@ function updateProfilePicture() {
   //profileImage.classList.add("glowing");
 
   const starsContainer = document.querySelector(".stars");
-  // Entferne alle vorhandenen Sterne
+  // Remove stars
   while (starsContainer.firstChild) {
     starsContainer.removeChild(starsContainer.firstChild);
   }
 
-  const starCount = Math.floor(level / 5); // Anzahl der Sterne basierend auf dem Level
+  const starCount = Math.floor(level / 5); // Number of stars based on the level
   for (let i = 0; i < starCount; i++) {
     const starIcon = document.createElement("span");
     starIcon.classList.add("material-icons");
@@ -198,7 +198,7 @@ function getLevelColor(level) {
   } else if (level > 10 && level <= 20) {
     return "#00008B";
   } else {
-    return "black"; // Standardfarbe für unbekannte Level
+    return "black";
   }
 }
 
@@ -257,13 +257,13 @@ function calculateRemainingXP() {
 
 // Function to update the level based on experience points
 function updateLevel() {
-  const { experienceLevels } = experienceData; // Hole die Level-Informationen aus der JSON-Datei
+  const { experienceLevels } = experienceData; // Get the level information from the JSON file
   //console.log(experienceData);
   for (const levelData of experienceLevels) {
     if (experience >= levelData.experience) {
-      level = levelData.level; // Setze das Level basierend auf den Erfahrungspunkten aus der JSON-Datei
+      level = levelData.level; // Set the level based on the experience points from the JSON file
     } else {
-      break; // Breche die Schleife ab, wenn das aktuelle Level gefunden wurde
+      break; // Break the loop if the current level is found
     }
   }
 
@@ -273,7 +273,7 @@ function updateLevel() {
 
 // Function to handle collecting experience points
 function collectExperiencePoints(points) {
-  experience += points; // Erhöhe die Erfahrungspunkte
+  experience += points; // Increase Xp
 
   // Update the level based on experience points
   updateLevel();
@@ -377,7 +377,6 @@ function multiply() {
 function updateItems(newImageSrc) {
   const itemImages = document.querySelectorAll(".item-image");
 
-  // Durchsuche das itemCards-Array nach dem passenden Eintrag
   const selectedItem = itemCards.find(
     (item) => item.itemPicture === newImageSrc
   );
@@ -454,7 +453,7 @@ function playItemCard() {
         descriptionAmulet = filteredItem[0].description;
       }
     } else {
-      console.log("Error. Kann kein Item finden.");
+      console.log("Error. No item found.");
     }
   }
 }
@@ -464,7 +463,7 @@ document
   .addEventListener("click", handleHatItemButtonClick);
 
 function handleHatItemButtonClick() {
-  alert(`Effekt: ${titleHat} ${descriptionHat}`);
+  alert(`Effect: ${titleHat} ${descriptionHat}`);
 
   // Handle the item effect
   bottlesCollected *= factorHat;
@@ -476,7 +475,7 @@ function handleHatItemButtonClick() {
   document.querySelector("#hat").src = "items/default.jpg";
 
   // Reset alert title and description
-  titleHat = "kein Item";
+  titleHat = "no item";
   descriptionHat = "";
 
   // Update the display
@@ -488,7 +487,7 @@ document
   .addEventListener("click", handleCoatItemButtonClick);
 
 function handleCoatItemButtonClick() {
-  alert(`Effekt: ${titleCoat} ${descriptionCoat}`);
+  alert(`Effect: ${titleCoat} ${descriptionCoat}`);
 
   // Handle the item effect
   bottlesCollected *= factorCoat;
@@ -500,7 +499,7 @@ function handleCoatItemButtonClick() {
   document.querySelector("#coat").src = "items/default.jpg";
 
   // Reset alert title and description
-  titleCoat = "kein Item";
+  titleCoat = "no item";
   descriptionCoat = "";
 
   // Update the display
@@ -512,7 +511,7 @@ document
   .addEventListener("click", handleRingItemButtonClick);
 
 function handleRingItemButtonClick() {
-  alert(`Effekt: ${titleRing} ${descriptionRing}`);
+  alert(`Effect: ${titleRing} ${descriptionRing}`);
 
   // Handle the item effect
   coins *= factorRing;
@@ -524,7 +523,7 @@ function handleRingItemButtonClick() {
   document.querySelector("#ring").src = "items/default.jpg";
 
   // Reset alert title and description
-  titleRing = "kein Item";
+  titleRing = "no item";
   descriptionRing = "";
 
   // Update the display
@@ -536,7 +535,7 @@ document
   .addEventListener("click", handleAmuletItemButtonClick);
 
 function handleAmuletItemButtonClick() {
-  alert(`Effekt: ${titleAmulet} ${descriptionAmulet}`);
+  alert(`Effect: ${titleAmulet} ${descriptionAmulet}`);
 
   // Handle the item effect
   coins *= factorAmulet;
@@ -548,7 +547,7 @@ function handleAmuletItemButtonClick() {
   document.querySelector("#amulet").src = "items/default.jpg";
 
   // Reset alert title and description
-  titleAmulet = "kein Item";
+  titleAmulet = "no item";
   descriptionAmulet = "";
 
   // Update the display
