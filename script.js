@@ -1,54 +1,57 @@
 // Initialize game variables
-
 let bottles = 0;
 let coins = 0;
 let experience = 1;
 let level = 1;
 let food = 90;
 let bottlesCollected = 0;
+let factor = 1;
+let itemTitle = "Empty";
+let experienceData;
+let eventCards;
+let itemCards;
+let storyCards;
+let factorHat = 1;
+let factorCoat = 1;
+let factorRing = 1;
+let factorAmulet = 1;
+let titleHat = "kein Item";
+let descriptionHat = "";
+let titleCoat = "kein Item";
+let descriptionCoat = "";
+let titleRing = "kein Item";
+let descriptionRing = "";
+let titleAmulet = "kein Item";
+let descriptionAmulet = "";
 
 async function loadExperienceData() {
-  const response = await fetch("experience.json"); // Lade die JSON-Datei
-  experienceData = await response.json(); // Speichere die Daten in der Variable
+  const response = await fetch("experience.json");
+  experienceData = await response.json();
+  console.log("Experience:", experienceData);
+}
+
+async function loadEventCards() {
+  const response = await fetch("eventCards.json");
+  eventCards = await response.json();
+  console.log("Event Cards:", eventCards);
+}
+
+async function loadItemCards() {
+  const response = await fetch("itemCards.json");
+  itemCards = await response.json();
+  console.log("Item Cards:", itemCards);
+}
+
+async function loadStoryCards() {
+  const response = await fetch("storyCards.json");
+  storyCards = await response.json();
+  console.log("Story Cards:", storyCards);
 }
 
 loadExperienceData();
-
-let eventCards; // Variable zum Speichern der Event-Karten aus der JSON-Datei
-
-// Laden der JSON-Datei
-fetch("eventCards.json")
-  .then((response) => response.json())
-  .then((data) => {
-    eventCards = data; // Speichern der Event-Karten in der Variable
-    console.log("Event Cards:", eventCards); // Überprüfen der geladenen Event-Karten
-  })
-  .catch((error) => {
-    console.log("Fehler beim Laden der Event-Karten:", error);
-  });
-
-fetch("experience.json")
-  .then((response) => response.json())
-  .then((data) => {
-    // Hier kannst du mit den geladenen Erfahrungswerten arbeiten
-    console.log("Experience:", data);
-  })
-  .catch((error) => {
-    console.log("Fehler beim Laden der Erfahrungswerte:", error);
-  });
-
-let storyCards; // Variable zum Speichern der Story-Karten aus der JSON-Datei
-
-// Laden der JSON-Datei
-fetch("storyCards.json")
-  .then((response) => response.json())
-  .then((data) => {
-    storyCards = data; // Speichern der Story-Karten in der Variable
-    console.log("Story Cards:", storyCards); // Überprüfen der geladenen Story-Karten
-  })
-  .catch((error) => {
-    console.log("Fehler beim Laden der Story-Karten:", error);
-  });
+loadEventCards();
+loadItemCards();
+loadStoryCards();
 
 function playEventCard() {
   // Generate a random number between 1 and 20
@@ -168,6 +171,35 @@ function showStoryCard(storyCard) {
 function updateProfilePicture() {
   const profileImage = document.querySelector(".profile-image");
   profileImage.src = `img/profile${level}.jpg`;
+
+  const levelColor = getLevelColor(level);
+  profileImage.style.border = `${level}px solid ${levelColor}`;
+  //profileImage.classList.add("glowing");
+
+  const starsContainer = document.querySelector(".stars");
+  // Entferne alle vorhandenen Sterne
+  while (starsContainer.firstChild) {
+    starsContainer.removeChild(starsContainer.firstChild);
+  }
+
+  const starCount = Math.floor(level / 5); // Anzahl der Sterne basierend auf dem Level
+  for (let i = 0; i < starCount; i++) {
+    const starIcon = document.createElement("span");
+    starIcon.classList.add("material-icons");
+    starIcon.style.touchAction = "manipulation";
+    starIcon.textContent = "star";
+    starsContainer.appendChild(starIcon);
+  }
+}
+
+function getLevelColor(level) {
+  if (level >= 5 && level <= 10) {
+    return "#8B0000";
+  } else if (level > 10 && level <= 20) {
+    return "#00008B";
+  } else {
+    return "black"; // Standardfarbe für unbekannte Level
+  }
 }
 
 // Function to update the game display
@@ -223,8 +255,6 @@ function calculateRemainingXP() {
   }
 }
 
-let experienceData; // Variable zum Speichern der Erfahrungspunkte und des Levels aus der JSON-Datei
-
 // Function to update the level based on experience points
 function updateLevel() {
   const { experienceLevels } = experienceData; // Hole die Level-Informationen aus der JSON-Datei
@@ -268,6 +298,8 @@ function collectBottles(event) {
 
   // Play an event card
   playEventCard();
+
+  playItemCard();
 
   // Update the display
   updateDisplay();
@@ -334,6 +366,193 @@ function makeParty(event) {
 // Function to handle clicking the story button
 function handleStoryButtonClick() {
   playStoryCard();
+}
+
+function multiply() {
+  factor = 2;
+}
+
+// Function to update the profile picture based on the item
+
+function updateItems(newImageSrc) {
+  const itemImages = document.querySelectorAll(".item-image");
+
+  // Durchsuche das itemCards-Array nach dem passenden Eintrag
+  const selectedItem = itemCards.find(
+    (item) => item.itemPicture === newImageSrc
+  );
+
+  if (selectedItem) {
+    const selectedItemId = selectedItem.itemId;
+    const selectedItemImage = document.getElementById(selectedItemId);
+
+    if (selectedItemImage) {
+      selectedItemImage.src = newImageSrc;
+    }
+  }
+
+  for (let i = 0; i < itemImages.length; i++) {
+    const itemId = itemImages[i].id;
+    if (itemId === newImageSrc) {
+      itemImages[i].src = newImageSrc;
+    }
+  }
+
+  console.log(newImageSrc, selectedItem.type);
+
+  if (selectedItem.type === "hat") {
+    document.querySelector("#hat").src = selectedItem.itemPicture;
+  } else if (selectedItem.type === "coat") {
+    document.querySelector("#coat").src = selectedItem.itemPicture;
+  } else if (selectedItem.type === "ring") {
+    document.querySelector("#ring").src = selectedItem.itemPicture;
+  } else if (selectedItem.type === "amulet") {
+    document.querySelector("#amulet").src = selectedItem.itemPicture;
+  } else {
+    console.log("Error. Kann kein Item finden.");
+  }
+}
+
+function playItemCard() {
+  // Generate a random number between 1 and 25
+  const randomNum = Math.floor(Math.random() * 25) + 1;
+
+  // Check if the random number is 1 (1/25 chance)
+  if (randomNum === 1) {
+    // Get a random item card from the itemCards array
+    const randomCard = itemCards[Math.floor(Math.random() * itemCards.length)];
+
+    // Apply the effects of the item card
+    updateItems(randomCard.itemPicture);
+    itemTitle = randomCard.title;
+    console.log(itemTitle);
+
+    // Filter the item types
+    const filteredItem = itemCards.filter(
+      (item) => item.type === randomCard.type
+    );
+    if (filteredItem.length > 0) {
+      // Update the display
+      updateDisplay();
+
+      // Assign the item picture to the corresponding ID
+      if (filteredItem[0].type === "hat") {
+        factorHat = filteredItem[0].itemEffect;
+        titleHat = filteredItem[0].title;
+        descriptionHat = filteredItem[0].description;
+      } else if (filteredItem[0].type === "coat") {
+        factorCoat = filteredItem[0].itemEffect;
+        titleCoat = filteredItem[0].title;
+        descriptionCoat = filteredItem[0].description;
+      } else if (filteredItem[0].type === "ring") {
+        factorRing = filteredItem[0].itemEffect;
+        titleRing = filteredItem[0].title;
+        descriptionRing = filteredItem[0].description;
+      } else if (filteredItem[0].type === "amulet") {
+        factorAmulet = filteredItem[0].itemEffect;
+        titleAmulet = filteredItem[0].title;
+        descriptionAmulet = filteredItem[0].description;
+      }
+    } else {
+      console.log("Error. Kann kein Item finden.");
+    }
+  }
+}
+
+document
+  .querySelector("#hat")
+  .addEventListener("click", handleHatItemButtonClick);
+
+function handleHatItemButtonClick() {
+  alert(`Effekt: ${titleHat} ${descriptionHat}`);
+
+  // Handle the item effect
+  bottlesCollected *= factorHat;
+
+  // Reset factor
+  factorHat = 1;
+
+  // Reset img
+  document.querySelector("#hat").src = "items/default.jpg";
+
+  // Reset alert title and description
+  titleHat = "kein Item";
+  descriptionHat = "";
+
+  // Update the display
+  updateDisplay();
+}
+
+document
+  .querySelector("#coat")
+  .addEventListener("click", handleCoatItemButtonClick);
+
+function handleCoatItemButtonClick() {
+  alert(`Effekt: ${titleCoat} ${descriptionCoat}`);
+
+  // Handle the item effect
+  bottlesCollected *= factorCoat;
+
+  // Reset factor
+  factorCoat = 1;
+
+  // Reset img
+  document.querySelector("#coat").src = "items/default.jpg";
+
+  // Reset alert title and description
+  titleCoat = "kein Item";
+  descriptionCoat = "";
+
+  // Update the display
+  updateDisplay();
+}
+
+document
+  .querySelector("#ring")
+  .addEventListener("click", handleRingItemButtonClick);
+
+function handleRingItemButtonClick() {
+  alert(`Effekt: ${titleRing} ${descriptionRing}`);
+
+  // Handle the item effect
+  coins *= factorRing;
+
+  // Reset factor
+  factorRing = 1;
+
+  // Reset img
+  document.querySelector("#ring").src = "items/default.jpg";
+
+  // Reset alert title and description
+  titleRing = "kein Item";
+  descriptionRing = "";
+
+  // Update the display
+  updateDisplay();
+}
+
+document
+  .querySelector("#amulet")
+  .addEventListener("click", handleAmuletItemButtonClick);
+
+function handleAmuletItemButtonClick() {
+  alert(`Effekt: ${titleAmulet} ${descriptionAmulet}`);
+
+  // Handle the item effect
+  coins *= factorAmulet;
+
+  // Reset factor
+  factorAmulet = 1;
+
+  // Reset img
+  document.querySelector("#amulet").src = "items/default.jpg";
+
+  // Reset alert title and description
+  titleAmulet = "kein Item";
+  descriptionAmulet = "";
+
+  // Update the display
+  updateDisplay();
 }
 
 // Add event listener to the story button

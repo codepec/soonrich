@@ -1,0 +1,59 @@
+[
+  {
+    "type": "hat",
+    "title": "Get a hat! You got: 2 x Bottles!",
+    "description": "You got a hat!",
+    "itemPicture": "items/hat.jpg",
+    "itemEffect": "2",
+    "requirement": 1
+  },
+  {
+    "type": "hat",
+    "title": "Get a hat! You got: 2 x Bottles!",
+    "description": "You got a hat!",
+    "itemPicture": "items/hat2.jpg",
+    "itemEffect": "2",
+    "requirement": 1
+  },
+  {
+    "type": "hat",
+    "title": "Get a hat! You got: 2 x Bottles!",
+    "description": "You got a hat!",
+    "itemPicture": "items/hat3.jpg",
+    "itemEffect": "2",
+    "requirement": 1
+  },
+  {
+    "type": "coat",
+    "title": "Get a coat! You got: 5 x Bottles!",
+    "description": "You got a coat!",
+    "itemPicture": "items/coat.jpg",
+    "itemEffect": "5",
+    "requirement": 1
+  },
+  {
+    "type": "coat",
+    "title": "Get a coat! You got: 2 x Bottles!",
+    "description": "You got a coat!",
+    "itemPicture": "items/coat2.jpg",
+    "itemEffect": "2",
+    "requirement": 1
+  },
+  {
+    "type": "ring",
+    "title": "Get a ring! You got: 2 x Coins!",
+    "description": "You got a ring!",
+    "itemPicture": "items/ring.jpg",
+    "itemEffect": "2",
+    "requirement": 1
+  },
+  {
+    "type": "amulet",
+    "title": "Get an amulet! You got: 5 x Coins!",
+    "description": "You got an amulet!",
+    "itemPicture": "items/amulet.jpg",
+    "itemEffect": "5",
+    "requirement": 1
+  }
+
+]

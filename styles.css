@@ -150,10 +150,12 @@ p{
   }
   
 
-img{
+
+.profile-image{
 	max-width: 100px;
 	border-radius: 15px;
 	box-shadow: 0px 0px 2px 2px #000000;
+
 }
 
   
@@ -208,5 +210,44 @@ img{
   
   #storyButton{
 	width: 300px;
+  }
+
+
+  @keyframes glowing {
+	0% {
+	  box-shadow: 0 0 5px rgba(255, 255, 0, 0.3);
+	}
+	50% {
+	  box-shadow: 0 0 20px rgba(255, 255, 0, 0.8);
+	}
+	100% {
+	  box-shadow: 0 0 5px rgba(255, 255, 0, 0.3);
+	}
+  }
+  
+
+  .glowing {
+	animation: glowing 2s infinite;
+  }
+  
+
+  .item-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 10px;
+	text-align: center;
+  }
+  
+  .item-image {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	border: 2px solid white;
+	box-shadow: 0px 0px 5px 2px rgba(255, 255, 255, 0.2);
+	margin: 5px;
   }
 
