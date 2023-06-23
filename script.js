@@ -1,13 +1,15 @@
 // Initialize game variables
 let bottles = 0;
 let coins = 0;
-let experience = 1;
-let level = 0;
+let experience = 0;
+let level = 1;
 let food = 90;
 let bottlesCollected = 0;
 let factor = 1;
 let itemTitleDefault = "Empty";
-let experienceData;
+let experienceData = {
+  experienceLevels: [{ level: 1, experience: 100 }],
+};
 let eventCards;
 let itemCards;
 let storyCards;
