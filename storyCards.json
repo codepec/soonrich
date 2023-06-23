@@ -1,26 +1,26 @@
 [
-    {
-      "type": "story",
-      "title": "Einleitung",
-      "description": "In einer kleinen Stadt lebte ein bescheidener Flaschensammler namens Emil. Tag für Tag durchstreifte er die Straßen, auf der Suche nach leeren Flaschen, die er gegen ein paar Münzen eintauschen konnte. Emil war bekannt für seine Ausdauer und Hartnäckigkeit. Obwohl sein Leben einfach war, träumte er insgeheim von aufregenden Abenteuern und neuen Begegnungen.",
-      "requirement": "1"
-    },
-    {
-      "type": "story",
-      "title": "Erste Begegnung im Hinterhof",
-      "description": "Eines Tages, als Emil in einem abgelegenen Hinterhof nach Flaschen suchte, hörte er ein Geräusch hinter einer alten Holzkiste. Neugierig ging er näher heran und entdeckte eine Gruppe von Kindern, die sich dort versteckt hatten. Sie hatten einen geheimen Club gegründet und waren fasziniert von Emils Sammlung leerer Flaschen. Emil teilte seine Geschichten über das Sammeln von Flaschen und begeisterte die Kinder. Sie schlossen ihn in ihre Gemeinschaft ein und wurden zu treuen Begleitern auf seinen Abenteuern.",
-      "requirement": "5"
-    },
-    {
-      "type": "story",
-      "title": "Aufführung auf dem Marktplatz",
-      "description": "Die Kinder hatten eine brillante Idee: Sie wollten eine Aufführung auf dem belebten Marktplatz organisieren, um Geld für wohltätige Zwecke zu sammeln. Emil war zunächst zögerlich, aber die Begeisterung der Kinder steckte ihn an. Sie probten eifrig und entwickelten eine erstaunliche Darbietung, die die Herzen der Menschen berührte. Emil wurde zu ihrem größten Unterstützer und half dabei, die Aufführung zu organisieren. Die Menschen auf dem Marktplatz waren von der Leidenschaft und dem Talent der Kinder beeindruckt und spendeten großzügig für den guten Zweck.",
-      "requirement": "8"
-    },
-    {
-      "type": "story",
-      "title": "Halt und Zuversicht für ein neues Leben durch seine drei neuen Freunde",
-      "description": "Während Emil mit den Kindern auf seinen Abenteuern unterwegs war, wurde er von ihrer Energie und ihrem Optimismus inspiriert. Er erzählte ihnen von seinen persönlichen Herausforderungen und seinem Wunsch nach einem besseren Leben. Die Kinder versprachen, ihm zu helfen, und sie begannen, gemeinsam nach Lösungen zu suchen. Durch ihre Kontakte und Bemühungen gelang es ihnen, Emil eine Anstellung in einem nahegelegenen Recyclingunternehmen zu verschaffen. Emil fand nicht nur eine neue berufliche Perspektive, sondern auch Halt und Zuversicht für ein neues Leben durch seine drei neuen Freunde. Emil lernte, dass wahre Schätze nicht immer aus materiellen Dingen bestehen. Durch sein Engagement und seine Begeisterung für das Sammeln von Flaschen hatte er wertvolle Begegnungen und eine Gemeinschaft von mitfühlenden Menschen gefunden. Zusammen erlebten sie spannende Abenteuer, die Emils Leben bereicherten und ihm zeigten, dass man manchmal mehr erreichen kann, wenn man gemeinsam an einem Strang zieht. Diese Geschichte erzählt von Emils Reise als Flaschensammler und den wunderbaren Menschen, die sein Leben bereicherten. Sie zeigt, wie kleine Taten der Freundlichkeit und Mitmenschlichkeit große Veränderungen bewirken können und dass manchmal die einfachsten Dinge die größten Schätze bergen.",
-      "requirement": "12"
-    }
-  ]
+  {
+    "type": "story",
+    "title": "Introduction",
+    "description": "In a small town lived a humble bottle collector named Emil. Day after day, he wandered the streets, searching for empty bottles that he could exchange for a few coins. Emil was known for his endurance and perseverance. Although his life was simple, he secretly dreamed of exciting adventures and new encounters.",
+    "requirement": "1"
+  },
+  {
+    "type": "story",
+    "title": "First Encounter in the Backyard",
+    "description": "One day, as Emil was searching for bottles in a secluded backyard, he heard a noise behind an old wooden crate. Curiously, he approached and discovered a group of children hiding there. They had formed a secret club and were fascinated by Emil's collection of empty bottles. Emil shared his stories of bottle collecting, captivating the children. They welcomed him into their community and became loyal companions on his adventures.",
+    "requirement": "5"
+  },
+  {
+    "type": "story",
+    "title": "Performance at the Marketplace",
+    "description": "The children had a brilliant idea: they wanted to organize a performance at the bustling marketplace to raise money for charity. Emil was initially hesitant, but the children's enthusiasm rubbed off on him. They practiced diligently and created an amazing show that touched people's hearts. Emil became their biggest supporter and helped organize the performance. The people at the marketplace were impressed by the children's passion and talent, generously donating to the cause.",
+    "requirement": "8"
+  },
+  {
+    "type": "story",
+    "title": "Support and Confidence for a New Life through His Three New Friends",
+    "description": "While accompanying the children on his adventures, Emil was inspired by their energy and optimism. He shared his personal challenges and desire for a better life. The children promised to help him and together they started seeking solutions. Through their contacts and efforts, they managed to secure Emil a job at a nearby recycling company. Emil not only found a new professional perspective but also support and confidence for a new life through his three new friends. Emil learned that true treasures don't always come from material things. Through his dedication and enthusiasm for bottle collecting, he had found valuable encounters and a community of compassionate people. Together, they experienced thrilling adventures that enriched Emil's life and showed him that sometimes, more can be achieved when working together. This story tells of Emil's journey as a bottle collector and the wonderful people who enriched his life. It illustrates how small acts of kindness and compassion can bring about significant change and that sometimes, the simplest things hold the greatest treasures.",
+    "requirement": "12"
+  }
+]
