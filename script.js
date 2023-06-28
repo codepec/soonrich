@@ -103,6 +103,11 @@ function showEventCard(eventCard) {
   monitorBig.appendChild(cardDescription);
 }
 
+function restart() {
+  location.reload();
+  return false;
+}
+
 // Function to handle checking if the player is starved
 function checkStarvation() {
   if (food <= 0) {
@@ -110,6 +115,11 @@ function checkStarvation() {
     document.querySelector(".monitorBig").textContent =
       "Game Over: You starved";
     food = 0;
+
+    if (food === 0) {
+      document.querySelector("#storyButton").textContent = "Restart";
+      document.querySelector("#storyButton").addEventListener("click", restart);
+    }
 
     // Hide the buttons
     document.querySelector("#collectButton").style.display = "none";
@@ -557,10 +567,11 @@ function handleAmuletItemButtonClick() {
 }
 
 // Add event listener to the story button
-document
-  .querySelector("#storyButton")
-  .addEventListener("click", handleStoryButtonClick);
-
+if (food > 0) {
+  document
+    .querySelector("#storyButton")
+    .addEventListener("click", handleStoryButtonClick);
+}
 // Add event listeners to the buttons
 document
   .querySelector("#collectButton")
