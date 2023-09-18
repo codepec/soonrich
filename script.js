@@ -587,7 +587,7 @@ document
 // Initial display update
 updateDisplay();
 
-let countdown = 10; // Initial countdown time in seconds
+let countdown = 60; // Initial countdown time in seconds
 // Function to start the countdown
 function startCountdown() {
   const countdownInterval = setInterval(() => {
