@@ -112,8 +112,7 @@ function restart() {
 function checkStarvation() {
   if (food <= 0) {
     // Display the game over message
-    document.querySelector(".monitorBig").textContent =
-      "Game Over: You starved";
+    document.querySelector(".monitorBig").textContent = "Game Over";
     food = 0;
 
     if (food === 0) {
@@ -347,6 +346,7 @@ function buyFood(event) {
     // Deduct coins and increase food
     coins -= 3;
     food += 10;
+    countdown += 1;
 
     // Update the display
     updateDisplay();
@@ -586,3 +586,35 @@ document
 
 // Initial display update
 updateDisplay();
+
+let countdown = 10; // Initial countdown time in seconds
+// Function to start the countdown
+function startCountdown() {
+  const countdownInterval = setInterval(() => {
+    // Update the countdown display
+    document.getElementById("countdown").textContent = formatTime(countdown);
+
+    if (countdown === 0) {
+      // Countdown reached zero, stop the interval and log "Game over"
+      clearInterval(countdownInterval);
+      food = 0;
+      checkStarvation();
+    } else {
+      countdown--; // Decrement the countdown
+    }
+  }, 1000); // Update the countdown every second
+}
+
+// Function to format the time as HH:MM:SS
+function formatTime(timeInSeconds) {
+  const hours = Math.floor(timeInSeconds / 3600);
+  const minutes = Math.floor((timeInSeconds % 3600) / 60);
+  const seconds = timeInSeconds % 60;
+
+  return `${hours.toString().padStart(2, "0")}:${minutes
+    .toString()
+    .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+}
+
+// Call the startCountdown function to initiate the countdown
+startCountdown();
