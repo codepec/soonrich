@@ -161,21 +161,8 @@ function playStoryCard() {
 }
 
 function showStoryCard(storyCard) {
-  const monitorBig = document.querySelector(".monitorBig");
-
-  // Create the event card elements
-  const cardTitle = document.createElement("h2");
-  cardTitle.textContent = storyCard.title;
-
-  const cardDescription = document.createElement("p");
-  cardDescription.textContent = storyCard.description;
-
-  // Clear the monitorBig content
-  monitorBig.innerText = "";
-
-  // Append the event card elements to the monitorBig
-  monitorBig.appendChild(cardTitle);
-  monitorBig.appendChild(cardDescription);
+  // Display an alert with the storyCard's title and description
+  alert(storyCard.title + "\n\n" + storyCard.description);
 }
 
 // Function to update the profile picture based on the level
