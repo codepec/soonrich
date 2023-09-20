@@ -19,132 +19,258 @@
 
 </head>
 <body>
+  <div class="tab">
+    <button class="tablinks" onclick="openTab('newGame')">New game</button>
+    <button class="tablinks" onclick="openTab('gameplay')">Gameplay</button>
+    <button class="tablinks" onclick="openTab('settings')">Settings</button>
+    <button class="tablinks" onclick="openTab('highscore')">Highscore</button>
+    <!-- Weitere Tabs hier hinzufügen -->
+  </div>
+
   <!--
   <h1>Soon rich</h1>
   -->
-<div class="block">
-
-  <!--
-  <div class="containerCenter">
-    <div id="uhr"></div>
-  </div>
-  -->
-
-  <div class="containerCenter">
-  
-
-    <div class="progress-container">
-      <div class="containerBar xp">
-        <div class="skills">Experience</div>
-        <div class="progress"></div>
-      </div>
-      <div class="containerBar level">
-        <div class="skills">Level</div>
-        <div class="progress"></div>
-      </div>
-    </div>
-    
-    <div class="progress-container">
-      <div class="containerBar food">
-        <div class="skills">Food</div>
-        <div class="progress"></div>
-      </div>
-      <!--
-      <div class="containerBar mood">
-        <div class="skills">Mood</div>
-        <div class="progress">20%</div>
-      </div>
-      -->
-    </div>
-    
-    <div class="progress-container">
-      <div class="containerBar coins">
-        <div class="skills">Coins</div>
-        <div class="progress"></div>
-      </div>
-      <div class="containerBar bottles">
-        <div class="skills">Bottles</div>
-        <div class="progress"></div>
-      </div>
-    </div>
-
-    <div class="stars">
-      <span class="material-icons" style="touch-action: manipulation;">star</span>
-    </div>
-
-    <div>Time until the golden shot:</div>
-    <div id="countdown">00:01:00</div>
-
-    <div class="profile" id="character">
-      <img src="img/profile1.jpg" class="profile-image" alt="Profilbild">
-      <div class="item-container">
-          <img src="items/default.jpg" class="item-image" id="hat">
-          <img src="items/default.jpg" class="item-image" id="coat">
-          <img src="items/default.jpg" class="item-image" id="ring">
-          <img src="items/default.jpg" class="item-image" id="amulet">
-      </div>
-    </div>
-    
-  
-
-
-    
-  </div>
-
-
-  <div class="containerFlex">
-
-    <div class="gameButtons" id="collectButton" style="touch-action: manipulation;">
-      <span class="material-icons" style="touch-action: manipulation;">liquor</span>
-    <p>collect</p>
-    </div>
-
-    <div class="gameButtons" id="exchangeButton" style="touch-action: manipulation;">
-      <span class="material-icons" style="touch-action: manipulation;">paid</span>
-     <p>change</p>
-    </div>
-
-    <div class="gameButtons" id="foodButton" style="touch-action: manipulation;">
-      <span class="material-icons" style="touch-action: manipulation;">fastfood</span>
-     <p>get food</p>
-    </div>
-
-    <div class="gameButtons" id="partyButton" style="touch-action: manipulation;">
-      <span class="material-icons" style="touch-action: manipulation;">celebration</span>
-     <p>party hard</p>
-    </div>
+  <div id="newGame" class="tabcontent">
+    <div class="block">
  
-
-  </div>
-
-  <div class="containerCenter">
-    <div class="monitorBig"> collect some bottles
-      <div id="experienceContainer"></div>
-
       <!--
-      <h2 id="eventText"></h2>
-      <div id="weaknessCard" class="card">
-        <h3>Weakness</h3>
-        <p>Weakness description</p>
-      </div>
-      <div id="strengthCard" class="card">
-        <h3>Strength</h3>
-        <p>Strength description</p>
+      <div class="containerCenter">
+        <div id="uhr"></div>
       </div>
       -->
+    
+      <div class="containerCenter">
+      
+    
+        <div class="progress-container">
+          <div class="containerBar xp">
+            <div class="skills">Experience</div>
+            <div class="progress"></div>
+          </div>
+          <div class="containerBar level">
+            <div class="skills">Level</div>
+            <div class="progress"></div>
+          </div>
+        </div>
+        
+        <div class="progress-container">
+          <div class="containerBar food">
+            <div class="skills">Food</div>
+            <div class="progress"></div>
+          </div>
+          <!--
+          <div class="containerBar mood">
+            <div class="skills">Mood</div>
+            <div class="progress">20%</div>
+          </div>
+          -->
+        </div>
+        
+        <div class="progress-container">
+          <div class="containerBar coins">
+            <div class="skills">Coins</div>
+            <div class="progress"></div>
+          </div>
+          <div class="containerBar bottles">
+            <div class="skills">Bottles</div>
+            <div class="progress"></div>
+          </div>
+        </div>
+    
+        <div class="stars">
+          <span class="material-icons" style="touch-action: manipulation;">star</span>
+        </div>
+    
+        <div>Time until the golden shot:</div>
+        <div id="countdown">00:01:00</div>
+    
+        <div class="profile" id="character">
+          <img src="img/profile1.jpg" class="profile-image" alt="Profilbild">
+          <div class="item-container">
+              <img src="items/default.jpg" class="item-image" id="hat">
+              <img src="items/default.jpg" class="item-image" id="coat">
+              <img src="items/default.jpg" class="item-image" id="ring">
+              <img src="items/default.jpg" class="item-image" id="amulet">
+          </div>
+        </div>
+        
+      
+    
+    
+        
+      </div>
+    
+    
+      <div class="containerFlex">
+    
+        <div class="gameButtons" id="collectButton" style="touch-action: manipulation;">
+          <span class="material-icons" style="touch-action: manipulation;">liquor</span>
+        <p>collect</p>
+        </div>
+    
+        <div class="gameButtons" id="exchangeButton" style="touch-action: manipulation;">
+          <span class="material-icons" style="touch-action: manipulation;">paid</span>
+         <p>change</p>
+        </div>
+    
+        <div class="gameButtons" id="foodButton" style="touch-action: manipulation;">
+          <span class="material-icons" style="touch-action: manipulation;">fastfood</span>
+         <p>get food</p>
+        </div>
+    
+        <div class="gameButtons" id="partyButton" style="touch-action: manipulation;">
+          <span class="material-icons" style="touch-action: manipulation;">celebration</span>
+         <p>party hard</p>
+        </div>
+     
+    
+      </div>
+    
+      <div class="containerCenter">
+        <div class="monitorBig"> collect some bottles
+          <div id="experienceContainer"></div>
+    
+    
+    
+          <!--
+          <h2 id="eventText"></h2>
+          <div id="weaknessCard" class="card">
+            <h3>Weakness</h3>
+            <p>Weakness description</p>
+          </div>
+          <div id="strengthCard" class="card">
+            <h3>Strength</h3>
+            <p>Strength description</p>
+          </div>
+          -->
+        </div>
+      </div>
+    
+      
+    
+      <div class="containerFlex">
+    
+        <div class="gameButtons" id="storyButton" style="touch-action: manipulation;">
+          <span class="material-icons" style="touch-action: manipulation;">extension</span>
+        <p>story</p>
+        </div>
+    
+    
+    
+        
+    
+    
+    
+    
+      </div>
+    
     </div>
   </div>
 
+
+  <div id="gameplay" class="tabcontent">
+    <h1>Gameplay</h1>
+
+    <div class="monitorBig">
+   
+
+
+      <p>
+        Willkommen bei "Soon Rich"! In diesem Spiel geht es darum, deine Erfahrung zu steigern, Level aufzusteigen, Essen zu sammeln, Münzen zu verdienen, und noch viel mehr! Hier sind die grundlegenden Schritte, um das Spiel zu spielen:
+        <br><br>
+        Spielbildschirm und Buttons:<br><br>
+   
+            <b>Erfahrung und Level:</b> <br>Im oberen Bereich des Bildschirms siehst du deine Erfahrung und dein Level. Du musst Erfahrung sammeln, um im Level aufzusteigen. <br><br>
+        
+            <b>Lebensmittel und Münzen:</b> <br>In der Mitte des Bildschirms findest du Anzeigen für Lebensmittel und Münzen. Du kannst Lebensmittel sammeln und Münzen verdienen. <br><br>
+        
+            <b>Sterne:</b> <br>Oben rechts findest du Sterne. Diese repräsentieren deine Belohnungen und Erfolge im Spiel. <br><br>
+        
+            <b>Countdown:</b> <br>Unten siehst du einen Countdown. Dies zeigt an, wie viel Zeit bis zum "Golden Shot" verbleibt. <br><br>
+        
+            <b>Profil:</b> <br>In der Mitte des Bildschirms ist dein Spielerprofil. Du kannst verschiedene Gegenstände, wie Hüte und Ringe, anlegen, um deinen Charakter anzupassen. <br><br>
+        
+        Spielbuttons: <br><br>
+        
+            "Collect" (Sammeln): Tippe auf das Flaschen-Icon, um Flaschen zu sammeln und Erfahrungspunkte zu verdienen. <br>
+        
+            "Change" (Wechseln): Tippe auf das Geld-Icon, um Münzen in andere Ressourcen zu tauschen.<br>
+        
+            "Get Food" (Essen holen): Tippe auf das Schnellimbiss-Icon, um Essen zu erhalten und deine Lebensmittel-Anzeige aufzufüllen.<br>
+        
+            "Party Hard" (Hart feiern): Tippe auf das Party-Icon, um besondere Belohnungen zu erhalten.<br>
+        
+            "Story" (Geschichte): Tippe auf das Buch-Icon, um die Hintergrundgeschichte des Spiels zu erfahren.<br>
+        
+            "Gameplay" (Spielablauf): Tippe auf das Spielcontroller-Icon, um mehr über das Gameplay zu erfahren.<br>
+        
+            "Settings" (Einstellungen): Tippe auf das Zahnradsymbol, um die Spieloptionen anzupassen.<br><br>
+        
+        Spielziel:<br><br>
+        
+        Sammle Erfahrung, steige im Level auf, verdiene Münzen, fülle deine Lebensmittelvorräte auf und erreiche alle möglichen Belohnungen. Das Ziel ist es, so reich wie möglich zu werden und die Herausforderungen des Spiels zu meistern.<br>
+        
+        Viel Spaß beim Spielen von "Soon Rich by Codepec"!<br>
+        
+        </p>
+
+
+    </div>
+
+
+
+
+  </div>
+
+  <div id="highscore" class="tabcontent">
+    <h1>Highscore</h1>
+
+    <div class="monitorBig">
+      <p>
+        #1  | Anonymus  | 02:23:10 <br>
+        #2  | Harry     | 02:25:53 <br>
+        #3  | Dorothea  | 02:26:53 <br>
+        #4  | Dorothea  | 02:27:23 <br>
+        #5  | Dorothea  | 02:28:58 <br>
+        #6  | Anonymus  | 03:23:54 <br>
+        #7  | Anonymus  | 05:53:34 <br>
+        #8  | Anonymus  | 05:10:12 <br>
+        #9  | Anonymus  | 06:04:32 <br>
+        #10 | Anonymus  | 06:05:14 <br>
+      </p>
+    </div>
+  </div>
+
+  <div id="settings" class="tabcontent">
+
+
+    <h1>Settings</h1>
+
+    <div class="monitorBig">
+    <p>Select Difficulty:</p>
+  
+      <div class="radio-options">
+        <label>
+          <input type="radio" name="difficulty" value="normal" checked> Normal
+        </label>
+    
+        <label>
+          <input type="radio" name="difficulty" value="nightmare"> Nightmare
+        </label>
+    
+        <label>
+          <input type="radio" name="difficulty" value="hell"> Hell
+        </label>
+      </div>
+    </div>
+  </div>
+  
   
 
-  <div class="containerFlex">
-    <div class="gameButtons" id="storyButton" style="touch-action: manipulation;">
-      <span class="material-icons" style="touch-action: manipulation;">extension</span>
-    <p>story</p>
-    </div>
-  </div>
 
-</div>
+
+
+
 
 </body>
 </html>

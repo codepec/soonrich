@@ -367,6 +367,26 @@ function handleStoryButtonClick() {
   playStoryCard();
 }
 
+// Function to handle clicking the story button
+function handleGameplayButtonClick() {
+  const gameplayHeader = document.getElementById("gameplayHeader");
+  const gameplayText = document.getElementById("gameplayText");
+  const gameplayButton = document.getElementById("gameplayButton");
+
+  gameplayButton.addEventListener("click", function () {
+    gameplayHeader.style.display = "block";
+    gameplayText.style.display = "block";
+    gameplayHeader.textContent = "Spielanleitung: Soon Rich by Codepec";
+    gameplayText.textContent =
+      "Willkommen bei 'Soon Rich'! In diesem Spiel geht es darum, deine Erfahrung zu steigern, Level aufzusteigen, Essen zu sammeln, Münzen zu verdienen, und noch viel mehr! Hier sind die grundlegenden Schritte, um das Spiel zu spielen:";
+  });
+}
+
+// Function to handle clicking the story button
+function handleSettingsButtonClick() {
+  alert("Hello Settings");
+}
+
 function multiply() {
   factor = 2;
 }
@@ -559,6 +579,7 @@ if (food > 0) {
     .querySelector("#storyButton")
     .addEventListener("click", handleStoryButtonClick);
 }
+
 // Add event listeners to the buttons
 document
   .querySelector("#collectButton")
@@ -575,9 +596,11 @@ document
 updateDisplay();
 
 let countdown = 60; // Initial countdown time in seconds
+let countdownInterval; // Variable to store the interval
+
 // Function to start the countdown
 function startCountdown() {
-  const countdownInterval = setInterval(() => {
+  countdownInterval = setInterval(() => {
     // Update the countdown display
     document.getElementById("countdown").textContent = formatTime(countdown);
 
@@ -592,6 +615,25 @@ function startCountdown() {
   }, 1000); // Update the countdown every second
 }
 
+// Function to stop the countdown
+function stopCountdown() {
+  clearInterval(countdownInterval);
+}
+
+// Function to handle page visibility change
+function handleVisibilityChange() {
+  if (document.hidden) {
+    // Page is not visible, stop the countdown
+    stopCountdown();
+  } else {
+    // Page is visible again, restart the countdown
+    startCountdown();
+  }
+}
+
+// Add event listener for visibility change
+document.addEventListener("visibilitychange", handleVisibilityChange);
+
 // Function to format the time as HH:MM:SS
 function formatTime(timeInSeconds) {
   const hours = Math.floor(timeInSeconds / 3600);
@@ -605,3 +647,16 @@ function formatTime(timeInSeconds) {
 
 // Call the startCountdown function to initiate the countdown
 startCountdown();
+
+// Funktion zum Öffnen eines Tabs und Ausblenden des oberen Inhalts
+function openTab(tabName) {
+  // Zeige den ausgewählten Tab-Inhalt
+  var tabs = document.getElementsByClassName("tabcontent");
+  for (var i = 0; i < tabs.length; i++) {
+    tabs[i].style.display = "none";
+  }
+  document.getElementById(tabName).style.display = "block";
+}
+
+// Standardmäßig den ersten Tab öffnen
+openTab("newGame");
