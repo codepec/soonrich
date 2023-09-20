@@ -168,7 +168,7 @@ p{
   }
   
   .containerBar {
-	width: 100px;
+	min-width: 150px;
 	height: 10px;
 	background-color: lightgray;
 	margin-right: 5px; /* Add margin to create spacing between bars */
@@ -209,10 +209,8 @@ p{
 	color: white;
   }
   
-  #storyButton, #settingsButton, #gameplayButton, #creditButton{
-	margin: 5px;
-	padding: 5px;
-	min-width: 70px;
+  #storyButton{
+	min-width: 300px;
   }
 
 
