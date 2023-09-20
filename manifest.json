@@ -1,8 +1,8 @@
 {
     "name": "SoonRich",
     "short_name": "SoonRich",
-    "theme_color": "#2196f3",
-    "background_color": "#2196f3",
+    "theme_color": "#1a1a1a",
+    "background_color": "#1a1a1a",
     "display": "fullScreen",
     "orientation": "portrait",
     "scope": "/",
