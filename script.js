@@ -171,7 +171,7 @@ function updateProfilePicture() {
   profileImage.src = `img/profile${level}.jpg`;
 
   const levelColor = getLevelColor(level);
-  profileImage.style.border = `${level}px solid ${levelColor}`;
+  profileImage.style.border = `${levelColor}`;
   //profileImage.classList.add("glowing");
 
   const starsContainer = document.querySelector(".stars");
