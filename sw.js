@@ -1,9 +1,18 @@
-const cacheName = 'site-cache-v1'
+const cacheName = 'site-cache-v2'
 const assetsToCache = [
     '/',
     '/index.html',
-    '/css/styles.css',
+    '/styles.css',
     '/app.js',
+    '/icons',
+    '/img',
+    '/items',
+    '/eventCards.json',
+    '/experience.json',
+    '/favicon.ico',
+    '/itemCards.json',
+    '/script.js',
+    '/storyCards.json'
 ]
 
 self.addEventListener('install', ( event ) => {
