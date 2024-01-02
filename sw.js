@@ -1,4 +1,4 @@
-const cacheName = 'site-cache-v2'
+const cacheName = 'site-cache-v3'
 const assetsToCache = [
     '/',
     '/index.html',
