@@ -1,14 +1,14 @@
-const cacheName = 'site-cache-v4'
+const cacheName = 'site-cache-v5'
 const assetsToCache = [
     '/',
     '/index.html',
     '/styles.css',
     '/app.js',
-    '/icons/*',
-    '/img/*',
-        '/img/profile2.jpg',
-            '/img/profile3.jpg',
-    '/items/*',
+    'icons/*',
+    'img/*',
+    'img/profile2.jpg',
+    'img/profile3.jpg',
+    'items/*',
     '/eventCards.json',
     '/experience.json',
     '/favicon.ico',
