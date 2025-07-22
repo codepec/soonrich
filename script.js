@@ -168,7 +168,7 @@ function showStoryCard(storyCard) {
 // Function to update the profile picture based on the level
 function updateProfilePicture() {
   const profileImage = document.querySelector(".profile-image");
-  profileImage.src = `img/profile${level}.jpg`;
+  profileImage.src = `img/profile${level}.png`;
 
   const levelColor = getLevelColor(level);
   profileImage.style.border = `${levelColor}`;
