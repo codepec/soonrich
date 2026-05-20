@@ -1,267 +1,381 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>soon rich by codepec</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<meta charset="utf-8">
-<script src="script.js" defer></script>
-<script src="app.js"></script>
-<!--<script src="clockscript.js" defer></script>-->
-<link rel="stylesheet" href="styles.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <head>
+    <title>Soon Rich by Codepec</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <meta charset="utf-8" />
 
-<link rel="manifest" href="manifest.json">
-    
-<link rel="shortcut icon" href="/favicon.ico">
-<link rel="icon" type="image/png" href="icons/icon-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="icons/icon-128x128.png" sizes="128x128">
+    <script src="gameState.js"></script>
+    <script src="screenManager.js"></script>
+    <script src="minigames.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
 
-<link rel="apple-touch-icon" href="icons/icon-192x192.png">
-
-</head>
-<body>
-  <div class="tab">
-    <button class="tablinks" onclick="openTab('newGame')">New game</button>
-    <button class="tablinks" onclick="openTab('gameplay')">Gameplay</button>
-    <button class="tablinks" onclick="openTab('settings')">Settings</button>
-    <button class="tablinks" onclick="openTab('highscore')">Highscore</button>
-    <!-- Weitere Tabs hier hinzufügen -->
-  </div>
-
-  <!--
-  <h1>Soon rich</h1>
-  -->
-  <div id="newGame" class="tabcontent">
-    <div class="block">
- 
-      <!--
-      <div class="containerCenter">
-        <div id="uhr"></div>
-      </div>
-      -->
-    
-      <div class="containerCenter">
-      
-    
-        <div class="progress-container">
-          <div class="containerBar xp">
-            <div class="skills">Experience</div>
-            <div class="progress"></div>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="icons/icon-96x96.png" sizes="96x96" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="icons/icon-128x128.png"
+      sizes="128x128"
+    />
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png" />
+  </head>
+  <body>
+    <!-- HOME SCREEN -->
+    <div id="home" class="screen active">
+      <div class="screen-header">
+        <div class="header-stats">
+          <div class="stat-item">
+            <span class="label">LEVEL</span>
+            <span id="headerLevel" class="value">1</span>
           </div>
-          <div class="containerBar level">
-            <div class="skills">Level</div>
-            <div class="progress"></div>
+          <div class="stat-item">
+            <span id="headerXP" class="label">120/250 XP</span>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
           </div>
         </div>
-        
-        <div class="progress-container">
-          <div class="containerBar food">
-            <div class="skills">Food</div>
-            <div class="progress"></div>
-          </div>
-          <!--
-          <div class="containerBar mood">
-            <div class="skills">Mood</div>
-            <div class="progress">20%</div>
-          </div>
-          -->
-        </div>
-        
-        <div class="progress-container">
-          <div class="containerBar coins">
-            <div class="skills">Coins</div>
-            <div class="progress"></div>
-          </div>
-          <div class="containerBar bottles">
-            <div class="skills">Bottles</div>
-            <div class="progress"></div>
-          </div>
-        </div>
-    
-        <div class="stars">
-          <span class="material-icons" style="touch-action: manipulation;">star</span>
-        </div>
-    
-        <div>Time until the golden shot:</div>
-        <div id="countdown">00:01:00</div>
-    
-        <div class="profile" id="character">
-          <img src="img/profile0.png" class="profile-image" alt="Profilbild">
-          <div class="item-container">
-              <img src="items/default.jpg" class="item-image" id="hat">
-              <img src="items/default.jpg" class="item-image" id="coat">
-              <img src="items/default.jpg" class="item-image" id="ring">
-              <img src="items/default.jpg" class="item-image" id="amulet">
-          </div>
-        </div>
-        
-      
-    
-     
-        
-      </div>
-    
-    
-      <div class="containerFlex">
-    
-        <div class="gameButtons pill" id="collectButton" style="touch-action: manipulation;">
-          <span class="material-icons" style="touch-action: manipulation;">liquor</span>
-        <p>collect</p>
-        </div>
-
-        <div class="gameButtons pill" id="exchangeButton" style="touch-action: manipulation;">
-          <span class="material-icons" style="touch-action: manipulation;">paid</span>
-         <p>change</p>
-        </div>
-
-        <div class="gameButtons pill" id="foodButton" style="touch-action: manipulation;">
-          <span class="material-icons" style="touch-action: manipulation;">fastfood</span>
-         <p>get food</p>
-        </div>
-
-        <div class="gameButtons pill" id="partyButton" style="touch-action: manipulation;">
-          <span class="material-icons" style="touch-action: manipulation;">celebration</span>
-         <p>party hard</p>
-        </div>
-     
-    
-      </div>
-    
-      <div class="containerCenter">
-        <div class="monitorBig"> collect some bottles
-          <div id="experienceContainer"></div>
-    
-    
-    
+        <div class="header-buttons">
+          <button class="header-btn" onclick="screenManager.showScreen('settings')">
+            <span class="material-icons">settings</span>
+          </button>
         </div>
       </div>
-    
-      
-    
-      <div class="containerFlex">
-    
-        <div class="gameButtons" id="storyButton" style="touch-action: manipulation;">
-          <span class="material-icons" style="touch-action: manipulation;">extension</span>
-        <p>story</p>
+
+      <div class="screen-content">
+        <!-- Character Display -->
+        <div class="character-display">
+          <img src="img/profile0.png" class="character-image" alt="Character" />
+          <div class="items-overlay">
+            <img id="itemHat" src="items/default.jpg" class="item-slot" />
+            <img id="itemCoat" src="items/default.jpg" class="item-slot" />
+            <img id="itemRing" src="items/default.jpg" class="item-slot" />
+            <img id="itemAmulet" src="items/default.jpg" class="item-slot" />
+          </div>
         </div>
-    
-  
-    
+
+        <!-- Timer Section -->
+        <div class="timer-section">
+          <div class="timer-label">TIME UNTIL THE<br />GOLDEN SHOT</div>
+          <div id="goldenShotTimer" class="timer-display">00:01:00</div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="stat-icon">🍗</span>
+            <div class="stat-content">
+              <span class="stat-label">FOOD</span>
+              <span id="statFood" class="stat-value">90%</span>
+              <div class="progress-bar"><div class="progress-fill" style="width: 90%"></div></div>
+            </div>
+          </div>
+
+          <div class="stat-box">
+            <span class="stat-icon">💰</span>
+            <div class="stat-content">
+              <span class="stat-label">COINS</span>
+              <span id="statCoins" class="stat-value">0</span>
+            </div>
+          </div>
+
+          <div class="stat-box">
+            <span class="stat-icon">🍾</span>
+            <div class="stat-content">
+              <span class="stat-label">BOTTLES</span>
+              <span id="statBottles" class="stat-value">0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button class="action-btn collect" onclick="startCollectBottles()">
+            <span class="btn-icon">🍾</span>
+            <span class="btn-label">COLLECT</span>
+          </button>
+
+          <button class="action-btn exchange" onclick="screenManager.showScreen('exchange')">
+            <span class="btn-icon">💱</span>
+            <span class="btn-label">CHANGE</span>
+          </button>
+
+          <button class="action-btn food" onclick="screenManager.showScreen('getFood')">
+            <span class="btn-icon">🍗</span>
+            <span class="btn-label">GET FOOD</span>
+          </button>
+
+          <button class="action-btn party" onclick="screenManager.showScreen('partyHard')">
+            <span class="btn-icon">🎉</span>
+            <span class="btn-label">PARTY HARD</span>
+          </button>
+        </div>
+
+        <!-- Current Mission -->
+        <div class="mission-box">
+          <div class="mission-header">AKTUELLE AUFGABE</div>
+          <div class="mission-content">
+            <p id="missionText">Sammle Flaschen und feiern!</p>
+            <div class="mission-progress">
+              <span id="missionProgress">0/10</span>
+              <span class="reward">+50 XP</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-    
-    </div>
-  </div>
-
-
-  <div id="gameplay" class="tabcontent">
-    <h1>Gameplay</h1>
-
-    <div class="monitorBig">
-   
-
-      <p>
-        <b>Welcome to "Soon Rich"!</b> <br><br>
-    
-        Game Rules<br><br>
-        The objective of this game is to collect bottles and exchange them for coins.<br>
-        With the coins, you can purchase food.<br>
-        The more you eat, the more time you gain until you take a golden shot. Important note: You can eat beyond "100% Food".<br>
-        You can also party. Doing so earns you experience and allows you to level up. Partying is exhausting, so be sure not to starve while partying.<br><br>
-    
-        Here are the basic steps to play the game:
-        <br><br>
-        Game Screen and Buttons:<br><br>
-    
-            <b>Experience and Level:</b> <br>At the top of the screen, you'll see your experience and level.<br><br>
-    
-            <b>Bottles:</b> <br>Initially, you need to collect bottles.<br><br>
-    
-            <b>Coins:</b> <br>You can exchange bottles for coins.<br><br>
-        
-            <b>Food:</b> <br>You can purchase food using coins. The red bar indicates how full you are.<br><br>
-        
-            <b>Countdown:</b> <br>Below, you'll see a countdown. This indicates the time left until the "Golden Shot".<br><br>
-        
-            <b>Items:</b> <br>You can discover items that provide multipliers for bottles or coins. These items must be activated.<br><br>
-        
-        Game Buttons: <br><br>
-        
-            <b>"Collect":</b> <br> Tap on the bottle icon to collect bottles and earn experience points. Beware of dangers that can deplete your health.<br>
-        
-            <b>"Change": </b> <br>Tap on the coin icon to exchange coins for other resources.<br>
-        
-            <b>"Get Food": </b> <br>Tap on the fast-food icon to obtain food and refill your food meter. Even when you're full, each food item grants an extra +1 second before taking the Golden Shot.<br>
-        
-            <b>"Party Hard": </b> <br>Tap on the party icon to receive special rewards. Beware of dangers that can deplete your health.<br>
-        
-            <b>"Story": </b> <br>Tap on the book icon to learn the backstory of the game.<br>
-        
-        Game Objective:<br><br>
-        
-        Accumulate experience, level up, earn coins, stock up on food, and achieve all possible rewards. The goal is to become as rich as possible and conquer the game's challenges.<br>
-        
-        Enjoy playing "Soon Rich by Codepec"!<br>
-        
-        </p>
-    
-    </div>
-    
-
-
-
-  </div>
-
-  <div id="highscore" class="tabcontent">
-    <h1>Highscore</h1>
-
-    <div class="monitorBig">
-      <p>
-        #1  | Anonymus  | 02:23:10 <br>
-        #2  | Harry     | 02:25:53 <br>
-        #3  | Dorothea  | 02:26:53 <br>
-        #4  | Dorothea  | 02:27:23 <br>
-        #5  | Dorothea  | 02:28:58 <br>
-        #6  | Anonymus  | 03:23:54 <br>
-        #7  | Anonymus  | 05:53:34 <br>
-        #8  | Anonymus  | 05:10:12 <br>
-        #9  | Anonymus  | 06:04:32 <br>
-        #10 | Anonymus  | 06:05:14 <br>
-      </p>
-    </div>
-  </div>
-
-  <div id="settings" class="tabcontent">
-
-
-    <h1>Settings</h1>
-
-    <div class="monitorBig">
-    <p>Select Difficulty:</p>
-  
-      <div class="radio-options">
-        <label>
-          <input type="radio" name="difficulty" value="normal" checked> Normal
-        </label>
-    
-        <label>
-          <input type="radio" name="difficulty" value="nightmare"> Nightmare
-        </label>
-    
-        <label>
-          <input type="radio" name="difficulty" value="hell"> Hell
-        </label>
+      <!-- Bottom Navigation -->
+      <div class="bottom-nav">
+        <button class="nav-btn active" onclick="screenManager.showScreen('home')">
+          <span class="material-icons">home</span>
+        </button>
+        <button class="nav-btn" onclick="screenManager.showScreen('inventory')">
+          <span class="material-icons">backpack</span>
+        </button>
+        <button class="nav-btn" onclick="screenManager.showScreen('map')">
+          <span class="material-icons">map</span>
+        </button>
+        <button class="nav-btn" onclick="screenManager.showScreen('story')">
+          <span class="material-icons">book</span>
+        </button>
+        <button class="nav-btn" onclick="screenManager.showScreen('shop')">
+          <span class="material-icons">shopping_cart</span>
+        </button>
       </div>
     </div>
-  </div>
-  
-  
 
+    <!-- COLLECT BOTTLES SCREEN -->
+    <div id="collectBottles" class="screen">
+      <div class="screen-header">
+        <button class="back-btn" onclick="screenManager.goBack()">← Back</button>
+        <h2>COLLECT BOTTLES</h2>
+        <div class="timer-badge">
+          <span class="material-icons">timer</span>
+          <span id="collectTimer">10.0</span>s
+        </div>
+      </div>
 
+      <div class="screen-content">
+        <div id="collectBottlesGame" class="minigame-container"></div>
+        <div class="game-info">
+          Tipp auf die Flaschen um sie zu sammeln!
+          <div id="collectProgress" class="progress-text">0/10</div>
+        </div>
+      </div>
+    </div>
 
+    <!-- GET FOOD SCREEN (Shop) -->
+    <div id="getFood" class="screen">
+      <div class="screen-header">
+        <button class="back-btn" onclick="screenManager.goBack()">← Back</button>
+        <h2>GET FOOD</h2>
+        <div class="coin-badge">
+          <span class="material-icons">paid</span>
+          <span id="shopCoins">0</span>
+        </div>
+      </div>
 
+      <div class="screen-content shop-grid">
+        <div class="shop-item">
+          <div class="item-image">🍞</div>
+          <div class="item-name">BROT</div>
+          <div class="item-effect">+10%</div>
+          <div class="item-price">FREE</div>
+          <button onclick="buyFood('brot', 0, 10)">Buy</button>
+        </div>
 
+        <div class="shop-item">
+          <div class="item-image">🍜</div>
+          <div class="item-name">SUPPE</div>
+          <div class="item-effect">+30%</div>
+          <div class="item-price">5 💰</div>
+          <button onclick="buyFood('suppe', 5, 30)">Buy</button>
+        </div>
 
-</body>
+        <div class="shop-item">
+          <div class="item-image">🍖</div>
+          <div class="item-name">MAHLZEIT</div>
+          <div class="item-effect">+50%</div>
+          <div class="item-price">10 💰</div>
+          <button onclick="buyFood('mahlzeit', 10, 50)">Buy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PARTY HARD SCREEN -->
+    <div id="partyHard" class="screen">
+      <div class="screen-header">
+        <button class="back-btn" onclick="screenManager.goBack()">← Back</button>
+        <h2>PARTY HARD</h2>
+      </div>
+
+      <div class="screen-content party-content">
+        <div class="party-info">
+          Tippe im Takt!
+          <div class="party-score">
+            Score: <span id="partyScore">0</span>/8
+          </div>
+        </div>
+        <div id="partyHardGame" class="minigame-container"></div>
+        <button class="start-btn" onclick="Minigames.startPartyHard()">START PARTY</button>
+      </div>
+    </div>
+
+    <!-- EXCHANGE SCREEN -->
+    <div id="exchange" class="screen">
+      <div class="screen-header">
+        <button class="back-btn" onclick="screenManager.goBack()">← Back</button>
+        <h2>CHANGE</h2>
+      </div>
+
+      <div class="screen-content exchange-grid">
+        <div class="exchange-item">
+          <div class="exchange-from">
+            <div class="icon">🍾</div>
+            <div class="label">1 Bottle</div>
+          </div>
+          <div class="exchange-arrow">→</div>
+          <div class="exchange-to">
+            <div class="icon">💰</div>
+            <div class="label" id="coinRate">1 Coin</div>
+          </div>
+          <button onclick="doExchange(1)" class="exchange-btn">CHANGE</button>
+        </div>
+
+        <div class="exchange-item">
+          <div class="exchange-from">
+            <div class="icon">🍾</div>
+            <div class="label">10 Bottles</div>
+          </div>
+          <div class="exchange-arrow">→</div>
+          <div class="exchange-to">
+            <div class="icon">💰</div>
+            <div class="label" id="coinRate10">10 Coins</div>
+          </div>
+          <button onclick="doExchange(10)" class="exchange-btn">CHANGE</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- INVENTORY SCREEN -->
+    <div id="inventory" class="screen">
+      <div class="screen-header">
+        <h2>INVENTORY</h2>
+      </div>
+
+      <div class="screen-content inventory-grid">
+        <div id="inventoryContent"></div>
+      </div>
+    </div>
+
+    <!-- MAP/STORY SCREEN -->
+    <div id="map" class="screen">
+      <div class="screen-header">
+        <h2>MAP</h2>
+      </div>
+
+      <div class="screen-content map-grid">
+        <div id="mapContent"></div>
+      </div>
+    </div>
+
+    <!-- STORY SCREEN -->
+    <div id="story" class="screen">
+      <div class="screen-header">
+        <button class="back-btn" onclick="screenManager.goBack()">← Back</button>
+        <h2>STORY</h2>
+      </div>
+
+      <div class="screen-content story-content">
+        <div id="storyContent"></div>
+      </div>
+    </div>
+
+    <!-- SHOP SCREEN (for items) -->
+    <div id="shop" class="screen">
+      <div class="screen-header">
+        <h2>SHOP</h2>
+        <div class="coin-badge">
+          <span class="material-icons">paid</span>
+          <span id="shopCoins2">0</span>
+        </div>
+      </div>
+
+      <div class="screen-content shop-grid">
+        <div id="itemShop"></div>
+      </div>
+    </div>
+
+    <!-- SETTINGS SCREEN -->
+    <div id="settings" class="screen">
+      <div class="screen-header">
+        <button class="back-btn" onclick="screenManager.goBack()">← Back</button>
+        <h2>SETTINGS</h2>
+      </div>
+
+      <div class="screen-content settings-content">
+        <div class="setting-item">
+          <label>Difficulty:</label>
+          <select id="difficultySelect" onchange="changeDifficulty()">
+            <option value="normal">Normal</option>
+            <option value="nightmare">Nightmare</option>
+            <option value="hell">Hell</option>
+          </select>
+        </div>
+
+        <button class="danger-btn" onclick="if(confirm('Wirklich zurücksetzen?')) { gameState.resetGame(); location.reload(); }">
+          RESET GAME
+        </button>
+      </div>
+    </div>
+
+    <!-- SUCCESS OVERLAY -->
+    <div id="successOverlay" class="overlay">
+      <div class="overlay-content">
+        <div class="overlay-header">✨ SUCCESS! ✨</div>
+        <div id="successMessage" class="overlay-message"></div>
+        <button class="overlay-btn" onclick="screenManager.closeOverlay(); screenManager.goBack()">
+          CONTINUE
+        </button>
+      </div>
+    </div>
+
+    <!-- LEVEL UP OVERLAY -->
+    <div id="levelUpOverlay" class="overlay">
+      <div class="overlay-content">
+        <div class="overlay-header">⭐ LEVEL UP! ⭐</div>
+        <div class="overlay-message">
+          <div class="level-display">
+            <div id="levelUpNew" class="level-number">2</div>
+          </div>
+          <div id="levelUpRewards" class="rewards-list"></div>
+        </div>
+        <button class="overlay-btn" onclick="screenManager.closeOverlay()">CONTINUE</button>
+      </div>
+    </div>
+
+    <!-- GAME OVER OVERLAY -->
+    <div id="gameOverOverlay" class="overlay">
+      <div class="overlay-content">
+        <div class="overlay-header">💀 GAME OVER 💀</div>
+        <div class="overlay-message">
+          <div id="gameOverStats"></div>
+        </div>
+        <button class="overlay-btn" onclick="newGame()">NEW GAME</button>
+        <button class="overlay-btn secondary" onclick="screenManager.showScreen('home')">
+          MAIN MENU
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
 </html>
-
