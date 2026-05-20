@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   await initializeGame();
   startGameLoop();
   updateUI();
+  setupEventListeners();
 });
 
 async function initializeGame() {
@@ -31,11 +32,20 @@ async function initializeGame() {
   updateUI();
 }
 
+function setupEventListeners() {
+  // Navigation button active state
+  document.querySelectorAll(".nav-btn").forEach((btn, idx) => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+    });
+  });
+}
+
 function startGameLoop() {
-  // Game timer loop
+  // Game timer loop - 100ms updates
   updateInterval = setInterval(() => {
     if (!gameState.gameOver && !gameState.isPaused) {
-      // Timer only decreases during gameplay
       if (gameState.timerActive) {
         gameState.decreaseGoldenShotTime(0.1);
         if (gameState.gameOver) {
@@ -133,6 +143,7 @@ function triggerLevelUp() {
   document.getElementById("levelUpNew").textContent = gameState.level;
   document.getElementById("levelUpRewards").textContent = rewards;
   gameState.addCoins(gameState.level * 10);
+  gameState.saveToStorage();
   screenManager.showOverlay("levelUpOverlay");
   updateUI();
 }
@@ -141,13 +152,14 @@ function triggerLevelUp() {
 function triggerGameOver() {
   gameState.gameOver = true;
   gameState.timerActive = false;
+  gameState.saveToStorage();
 
   const stats = `
-    Level: ${gameState.level}<br>
-    Experience: ${gameState.experience}<br>
-    Coins: ${gameState.coins}<br>
-    Bottles: ${gameState.bottles}<br>
-    Food: ${Math.floor(gameState.food)}%
+    <div class="stat-line">Level: <span>${gameState.level}</span></div>
+    <div class="stat-line">Experience: <span>${gameState.experience}</span></div>
+    <div class="stat-line">Coins: <span>${gameState.coins}</span></div>
+    <div class="stat-line">Bottles: <span>${gameState.bottles}</span></div>
+    <div class="stat-line">Food: <span>${Math.floor(gameState.food)}%</span></div>
   `;
 
   document.getElementById("gameOverStats").innerHTML = stats;
@@ -158,6 +170,7 @@ function triggerGameOver() {
 function newGame() {
   gameState.resetGame();
   gameState.timerActive = true;
+  gameState.saveToStorage();
   screenManager.closeOverlay();
   screenManager.reset();
   screenManager.showScreen("home");
@@ -169,6 +182,59 @@ function changeDifficulty() {
   const difficulty = document.getElementById("difficultySelect").value;
   localStorage.setItem("difficulty", difficulty);
   console.log("Difficulty set to:", difficulty);
+}
+
+// STORY CHAPTERS DISPLAY
+function displayStoryChapters() {
+  const mapContent = document.getElementById("mapContent");
+  if (!window.storyCards || window.storyCards.length === 0) {
+    mapContent.innerHTML = "<p>No chapters available yet.</p>";
+    return;
+  }
+
+  mapContent.innerHTML = "";
+  window.storyCards.forEach((card, index) => {
+    const chapterNum = index + 1;
+    const isUnlocked = gameState.unlockedChapters.includes(chapterNum);
+    
+    const chapterEl = document.createElement("div");
+    chapterEl.className = `chapter-item ${isUnlocked ? "unlocked" : "locked"}`;
+    
+    if (isUnlocked) {
+      chapterEl.innerHTML = `
+        <div class="chapter-header">
+          <div class="chapter-number">Chapter ${chapterNum}</div>
+          <div class="chapter-title">${card.title}</div>
+        </div>
+        <button class="chapter-read" onclick="readStory(${index})">READ</button>
+      `;
+    } else {
+      chapterEl.innerHTML = `
+        <div class="chapter-header">
+          <div class="chapter-number">Chapter ${chapterNum}</div>
+          <div class="chapter-title">${card.title}</div>
+        </div>
+        <div class="chapter-locked">🔒 Unlock at Level ${card.requirement}</div>
+      `;
+    }
+    
+    mapContent.appendChild(chapterEl);
+  });
+}
+
+function readStory(index) {
+  const storyContent = document.getElementById("storyContent");
+  if (window.storyCards && window.storyCards[index]) {
+    const chapter = window.storyCards[index];
+    storyContent.innerHTML = `
+      <div class="story-header">
+        <h3>${chapter.title}</h3>
+        <p class="story-requirement">Chapter ${index + 1}</p>
+      </div>
+      <div class="story-text">${chapter.description}</div>
+    `;
+    screenManager.showScreen("story");
+  }
 }
 
 // Start timer when game begins
